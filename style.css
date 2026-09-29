@@ -12,4 +12,22 @@ img {
 .logo img {
   height: 200px;
   width: auto;
+  
+}
+header {
+  display: flex;
+  padding: 16px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+header a{
+  text-decoration: none;
+  color:#3A302D;
 }
