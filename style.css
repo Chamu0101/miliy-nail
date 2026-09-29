@@ -1,3 +1,4 @@
+/* ===== 全体 ===== */
 * {
   box-sizing: border-box;
 }
@@ -9,16 +10,17 @@ img {
   height: auto;
   display: block;
 }
-.logo img {
-  height: 200px;
-  width: auto;
-  
-}
+
+/* ===== ヘッダー（PC） ===== */
 header {
   display: flex;
   padding: 16px 20px;
   justify-content: space-between;
   align-items: center;
+}
+.logo img {
+  height: 200px;
+  width: auto;
 }
 .nav-list {
   display: flex;
@@ -27,11 +29,66 @@ header {
   padding: 0;
   margin: 0;
 }
-header a{
+.nav-list a {
+  white-space: nowrap;
+}
+header a {
   text-decoration: none;
-  color:#3A302D;
+  color: #3a302d;
   transition: color 0.2s;
 }
 header a:hover {
-  color: #C08A85;
+  color: #c08a85;
+}
+/* =====　ヒーロー　===== */
+.hero-slides {
+  position: relative;
+  height: 70vh;
+}
+.hero-slides img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-slides img:nth-child(2) {
+  opacity: 0;
+  animation: hero-fade 10s infinite;
+}
+@keyframes hero-fade {
+  0%,
+  40% {
+    opacity: 0;
+  }
+  50%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* ===== スマホ（必ず一番下） ===== */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .logo img {
+    height: 100px;
+  }
+  .nav-home {
+    display: none;
+  }
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slides img:nth-child(2) {
+    animation: none;
+  }
 }
