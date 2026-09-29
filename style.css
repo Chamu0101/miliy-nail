@@ -75,6 +75,10 @@ header a:hover {
     flex-direction: column;
     gap: 12px;
   }
+  .hero-slides {
+    height: auto;
+    aspect-ratio: 16/9;
+  }
   .logo img {
     height: 100px;
   }
