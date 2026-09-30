@@ -4,6 +4,7 @@
 }
 body {
   margin: 0;
+  color: #3a302d;
 }
 img {
   max-width: 100%;
@@ -13,26 +14,35 @@ img {
 
 /* ===== ヘッダー（PC） ===== */
 header {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas:
+    "logo name ."
+    "logo nav  .";
   align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
+  gap: 8px 24px;
+  padding: 16px 32px;
 }
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  grid-area: logo;
 }
 .logo img {
-  height: 80px;
+  height: 110px;
   width: auto;
 }
-.logo-text {
-  font-size: 24px;
+.site-name {
+  grid-area: name;
+  justify-self: center;
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 0.05em;
+}
+header nav {
+  grid-area: nav;
 }
 .nav-list {
   display: flex;
+  justify-content: center;
   gap: 20px;
   list-style: none;
   padding: 0;
@@ -43,16 +53,19 @@ header {
 }
 header a {
   text-decoration: none;
-  color: #3A302D;
+  color: #3a302d;
   transition: color 0.2s;
 }
 header a:hover {
-  color: #C08A85;
+  color: #c08a85;
 }
-/* =====　ヒーロー　===== */
+
+/* ===== ヒーロー ===== */
 .hero-slides {
   position: relative;
-  height: 70vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
 }
 .hero-slides img {
   position: absolute;
@@ -78,25 +91,56 @@ header a:hover {
     opacity: 0;
   }
 }
+.hero-info {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 24px 20px;
+  text-align: center;
+}
+.hero-info h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+.hero-info p {
+  margin: 0;
+  font-size: 18px;
+}
+
 /* ===== スマホ（必ず一番下） ===== */
 @media (max-width: 600px) {
+  header {
+    grid-template-columns: 1fr auto auto 1fr;
+    grid-template-areas:
+      ".   logo name .  "
+      "nav nav  nav  nav";
+    gap: 8px 12px;
+    padding: 12px 16px;
+  }
   .logo img {
     height: 60px;
   }
-  .logo-text {
-    font-size: 20px;
+  .site-name {
+    justify-self: start;
+    font-size: 22px;
   }
   .nav-list {
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 12px;
+    gap: 4px 12px;
   }
   .nav-home {
     display: none;
   }
-  .hero-slides {
-    height: auto;
-    aspect-ratio: 16 / 9;
+  .hero-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .last-order {
+    display: block;
   }
 }
 @media (prefers-reduced-motion: reduce) {
