@@ -14,13 +14,22 @@ img {
 /* ===== ヘッダー（PC） ===== */
 header {
   display: flex;
-  padding: 16px 20px;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .logo img {
-  height: 200px;
+  height: 80px;
   width: auto;
+}
+.logo-text {
+  font-size: 24px;
 }
 .nav-list {
   display: flex;
@@ -34,11 +43,11 @@ header {
 }
 header a {
   text-decoration: none;
-  color: #3a302d;
+  color: #3A302D;
   transition: color 0.2s;
 }
 header a:hover {
-  color: #c08a85;
+  color: #C08A85;
 }
 /* =====　ヒーロー　===== */
 .hero-slides {
@@ -71,24 +80,23 @@ header a:hover {
 }
 /* ===== スマホ（必ず一番下） ===== */
 @media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    gap: 12px;
-  }
-  .hero-slides {
-    height: auto;
-    aspect-ratio: 16/9;
-  }
   .logo img {
-    height: 100px;
+    height: 60px;
   }
-  .nav-home {
-    display: none;
+  .logo-text {
+    font-size: 20px;
   }
   .nav-list {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px 16px;
+    gap: 8px 12px;
+  }
+  .nav-home {
+    display: none;
+  }
+  .hero-slides {
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 }
 @media (prefers-reduced-motion: reduce) {
