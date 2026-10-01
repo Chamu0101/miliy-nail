@@ -1,3 +1,9 @@
+/* ===== 色 ===== */
+:root {
+  --color-header-footer: #F5E3E1;
+  --color-text-sub-on-pink: #6B5752;
+  --color-hover: #94504A;
+}
 /* ===== 全体 ===== */
 * {
   box-sizing: border-box;
@@ -5,6 +11,7 @@
 body {
   margin: 0;
   color: #3a302d;
+  line-height: 1.8;
 }
 img {
   max-width: 100%;
@@ -22,6 +29,8 @@ header {
   align-items: center;
   gap: 8px 24px;
   padding: 16px 32px;
+  background-color: #f6f1ec;
+  background-color: var(--color-header-footer);
 }
 .logo {
   grid-area: logo;
@@ -34,7 +43,8 @@ header {
   grid-area: name;
   justify-self: center;
   margin: 0;
-  font-size: 28px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
   letter-spacing: 0.05em;
 }
 header nav {
@@ -57,14 +67,14 @@ header a {
   transition: color 0.2s;
 }
 header a:hover {
-  color: #c08a85;
+  color: var(--color-hover);
 }
 
 /* ===== ヒーロー ===== */
 .hero-slides {
   position: relative;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 24px auto 0;
   aspect-ratio: 16 / 9;
 }
 .hero-slides img {
@@ -110,21 +120,190 @@ header a:hover {
   font-size: 18px;
 }
 
+/* ===== セクション共通 ===== */
+.page-title,
+.concept,
+.notice,
+.reserve,
+.about,
+.menu,
+.menu-section,
+.sample {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+main h2 {
+  margin: 0 0 24px;
+  font-size: 22px;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  text-align: center;
+  word-break: auto-phrase;
+}
+main p {
+  margin: 0 0 12px;
+}
+main a {
+  color: #c08a85;
+}
+
+/* ===== 下層ページの見出し ===== */
+.page-title {
+  text-align: center;
+}
+.page-title h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+}
+.page-title p {
+  font-size: 14px;
+  color: #8a7b75;
+}
+
+/* ===== コンセプト ===== */
+.concept {
+  text-align: center;
+}
+.concept h2 {
+  font-size: 24px;
+}
+.concept p {
+  color: #8a7b75;
+}
+
+/* ===== 猫のご案内 ===== */
+.notice {
+  margin: 24px auto;
+  padding: 32px 24px;
+  background-color: #f6f1ec;
+  border-radius: 12px;
+}
+
+/* ===== 予約ボタン ===== */
+.reserve {
+  text-align: center;
+}
+.btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background-color: #c08a85;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background-color 0.2s;
+}
+.btn:hover {
+  background-color: #a9746f;
+}
+
+/* ===== 当サロンについて ===== */
+.about-list {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.about-list li {
+  padding: 12px 16px;
+  border: 1px solid #ebe0da;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* ===== メニュー（ホーム・メニューページ共通） ===== */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+.menu-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid #ebe0da;
+}
+.menu-name {
+  flex: 1;
+}
+.menu-price {
+  font-weight: bold;
+}
+.menu-time {
+  font-size: 14px;
+  color: #8a7b75;
+}
+.menu p {
+  text-align: center;
+}
+
+/* おすすめメニュー */
+/* おすすめメニュー */
+.menu-list .menu-featured {
+  align-items: flex-end;
+  padding: 16px 12px;
+  background-color: #faf0ed;
+  border-bottom: none;
+  border-radius: 8px;
+}
+.menu-badge {
+  display: block;
+  width: fit-content;
+  margin-bottom: 4px;
+  padding: 2px 10px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #c08a85;
+  border-radius: 999px;
+}
+
+/* ===== メニューページ ===== */
+.menu-section h3 {
+  margin: 32px 0 8px;
+  font-size: 16px;
+  color: #c08a85;
+  letter-spacing: 0.05em;
+}
+
+/* ===== アートサンプル ===== */
+.sample {
+  text-align: center;
+}
+
+/* ===== フッター ===== */
+footer {
+  padding: 32px 20px;
+  background-color: var(--color-header-footer);
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-sub-on-pink);
+}
+footer p {
+  margin: 4px 0;
+}
+
 /* ===== スマホ（必ず一番下） ===== */
 @media (max-width: 600px) {
   header {
-    grid-template-columns: 1fr auto auto 1fr;
+    grid-template-columns: 1fr auto 1fr;
     grid-template-areas:
-      ".   logo name .  "
-      "nav nav  nav  nav";
+      "logo name ."
+      "nav  nav  nav";
     gap: 8px 12px;
     padding: 12px 16px;
+  }
+  .logo {
+    justify-self: end;
   }
   .logo img {
     height: 60px;
   }
   .site-name {
-    justify-self: start;
+    justify-self: center;
     font-size: 22px;
   }
   .nav-list {
@@ -141,6 +320,22 @@ header a:hover {
   }
   .last-order {
     display: block;
+  }
+  .page-title,
+  .concept,
+  .reserve,
+  .about,
+  .menu,
+  .menu-section,
+  .sample {
+    padding: 40px 16px;
+  }
+  .notice {
+    margin: 24px 16px;
+  }
+  main h2,
+  .concept h2 {
+    font-size: 20px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
