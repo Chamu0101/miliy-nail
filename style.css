@@ -25,7 +25,7 @@ header {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   grid-template-areas:
-    "logo name ."
+    "logo name sns"
     "logo nav  .";
   align-items: center;
   gap: 8px 24px;
@@ -49,6 +49,14 @@ header {
 }
 header nav {
   grid-area: nav;
+}
+.sns-link {
+  grid-area: sns;
+  display: flex;
+  gap: 20px;
+}
+.sns-link img {
+  width: 40px;
 }
 .nav-list {
   display: flex;
@@ -327,7 +335,7 @@ footer p {
   header {
     grid-template-columns: 1fr auto 1fr;
     grid-template-areas:
-      "logo name ."
+      "logo name sns"
       "nav  nav  nav";
     gap: 8px 12px;
     padding: 12px 16px;
@@ -348,6 +356,12 @@ footer p {
   }
   .nav-home {
     display: none;
+  }
+  .sns-link img {
+    width: 30px;   
+  }
+  .sns-link {
+    gap: 15px;
   }
   .hero-slides {
     margin-top: 12px;
