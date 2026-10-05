@@ -1,8 +1,8 @@
 /* ===== 色 ===== */
 :root {
-  --color-header-footer: #F5E3E1;
-  --color-text-sub-on-pink: #6B5752;
-  --color-hover: #94504A;
+  --color-header-footer: #f5e3e1;
+  --color-text-sub-on-pink: #6b5752;
+  --color-hover: #94504a;
 }
 
 /* ===== 全体 ===== */
@@ -11,7 +11,7 @@
 }
 body {
   margin: 0;
-  color: #3A302D;
+  color: #3a302d;
   line-height: 1.8;
 }
 img {
@@ -63,7 +63,7 @@ header nav {
 }
 header a {
   text-decoration: none;
-  color: #3A302D;
+  color: #3a302d;
   transition: color 0.2s;
 }
 header a:hover {
@@ -129,7 +129,8 @@ header a:hover {
 .menu,
 .menu-section,
 .faq,
-.sample {
+.sample,
+.access-section {
   max-width: 720px;
   margin: 0 auto;
   padding: 48px 20px;
@@ -146,7 +147,7 @@ main p {
   margin: 0 0 12px;
 }
 main a {
-  color: #C08A85;
+  color: #c08a85;
 }
 
 /* ===== 下層ページの見出し ===== */
@@ -161,7 +162,7 @@ main a {
 }
 .page-title p {
   font-size: 14px;
-  color: #8A7B75;
+  color: #8a7b75;
 }
 
 /* ===== コンセプト ===== */
@@ -172,14 +173,14 @@ main a {
   font-size: 24px;
 }
 .concept p {
-  color: #8A7B75;
+  color: #8a7b75;
 }
 
 /* ===== 猫のご案内 ===== */
 .notice {
   margin: 24px auto;
   padding: 32px 24px;
-  background-color: #F6F1EC;
+  background-color: #f6f1ec;
   border-radius: 12px;
 }
 
@@ -190,14 +191,14 @@ main a {
 .btn {
   display: inline-block;
   padding: 14px 40px;
-  background-color: #C08A85;
+  background-color: #c08a85;
   color: #fff;
   text-decoration: none;
   border-radius: 999px;
   transition: background-color 0.2s;
 }
 .btn:hover {
-  background-color: #A9746F;
+  background-color: #a9746f;
 }
 
 /* ===== 当サロンについて ===== */
@@ -210,7 +211,7 @@ main a {
 }
 .about-list li {
   padding: 12px 16px;
-  border: 1px solid #EBE0DA;
+  border: 1px solid #ebe0da;
   border-radius: 8px;
   text-align: center;
 }
@@ -226,7 +227,7 @@ main a {
   align-items: baseline;
   gap: 12px;
   padding: 12px;
-  border-bottom: 1px solid #EBE0DA;
+  border-bottom: 1px solid #ebe0da;
 }
 .menu-name {
   flex: 1;
@@ -236,7 +237,7 @@ main a {
 }
 .menu-time {
   font-size: 14px;
-  color: #8A7B75;
+  color: #8a7b75;
 }
 .menu p {
   text-align: center;
@@ -246,7 +247,7 @@ main a {
 .menu-list .menu-featured {
   align-items: flex-end;
   padding: 16px 12px;
-  background-color: #FAF0ED;
+  background-color: #faf0ed;
   border-bottom: none;
   border-radius: 8px;
 }
@@ -257,7 +258,7 @@ main a {
   padding: 2px 10px;
   font-size: 12px;
   color: #fff;
-  background-color: #C08A85;
+  background-color: #c08a85;
   border-radius: 999px;
 }
 
@@ -265,13 +266,13 @@ main a {
 .menu-section h3 {
   margin: 32px 0 8px;
   font-size: 16px;
-  color: #C08A85;
+  color: #c08a85;
   letter-spacing: 0.05em;
 }
 
 /* ===== よくある質問 ===== */
 .faq details {
-  border-bottom: 1px solid #EBE0DA;
+  border-bottom: 1px solid #ebe0da;
 }
 .faq summary {
   padding: 16px 12px;
@@ -280,12 +281,33 @@ main a {
 .faq details p {
   margin: 0;
   padding: 0 12px 16px;
-  color: #6B5752;
+  color: #6b5752;
 }
 
 /* ===== アートサンプル ===== */
 .sample {
   text-align: center;
+}
+
+/* ===== アクセス ===== */
+.access-list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  gap: 4px 0;
+  align-items: baseline;
+}
+.access-list dd {
+  margin: 0;
+}
+.access-list dt {
+  font-size: 14px;
+  color: #6b5752;
+}
+.access-note {
+  display: block;
+  font-size: 14px;
+  color: #8a7b75;
 }
 
 /* ===== フッター ===== */
@@ -345,7 +367,8 @@ footer p {
   .menu,
   .menu-section,
   .faq,
-  .sample {
+  .sample,
+  .access-section {
     padding: 40px 16px;
   }
   .notice {
