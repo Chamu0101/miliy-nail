@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>メニュー｜miliy nail</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="menu.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap"
       rel="stylesheet"
@@ -54,8 +55,10 @@
         <h3>シンプル・定番</h3>
         <ul class="menu-list">
           <li>
-            <span class="menu-name">ワンカラー</span
-            ><span class="menu-price">5,500円</span>
+            <button type="button" class="menu-button">
+              <span class="menu-name">ワンカラー</span
+              ><span class="menu-price">5,500円</span>
+            </button>
           </li>
           <li>
             <span class="menu-name">ラメグラデーション</span
@@ -231,10 +234,20 @@
           </li>
         </ul>
       </section>
-
       <section class="reserve">
         <p><a href="reservation.html" class="btn">ご予約はこちらから</a></p>
       </section>
+      <dialog class="menu-dialog">
+        <img src="images/hero-nail.jpg" alt="ワンカラー" />
+        <h2>ワンカラー</h2>
+        <p>5,500円</p>
+        <p>指先を一色でまとめるベーシックな塗り方です。</p>
+        <p>お好きなカラーを1色お選びいただけます。 ※ラメカラーも対象です♡</p>
+        <p>2色塗りたい方は1色追加ごとに➕400円。</p>
+        <p>（追加アートより“カラー1色追加”をご選択ください）</p>
+        <p>マットホワイト、マットブラックは➕500円</p>
+        <button type="button" class="dialog-close">閉じる</button>
+      </dialog>
     </main>
     <footer>
       <p>営業時間 10:00〜21:00（最終受付19:00）</p>
