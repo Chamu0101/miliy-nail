@@ -305,7 +305,54 @@ main a {
   color: #c08a85;
   letter-spacing: 0.05em;
 }
-
+/* ===== メニューのポップアップ ===== */
+.menu-button {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.menu-button:hover .menu-name {
+  color: var(--color-hover);
+}
+.menu-dialog {
+  width: min(90vw, 480px);
+  max-height: 90vh;
+  padding: 0 0 24px;
+  border: none;
+  border-radius: 12px;
+}
+.menu-dialog::backdrop {
+  background-color: rgba(58, 48, 45, 0.5);
+}
+.menu-dialog img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+.menu-dialog h2,
+.menu-dialog p {
+  padding: 0 24px;
+}
+.dialog-close {
+  display: block;
+  margin: 24px auto 0;
+  padding: 10px 32px;
+  border: 1px solid #c08a85;
+  border-radius: 999px;
+  background: none;
+  color: #c08a85;
+  font: inherit;
+  cursor: pointer;
+}
 /* ===== よくある質問 ===== */
 .faq details {
   border-bottom: 1px solid #ebe0da;
