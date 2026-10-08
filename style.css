@@ -353,6 +353,22 @@ main a {
   font: inherit;
   cursor: pointer;
 }
+.menu-button::after {
+  content: "›";
+  color: #c08a85;
+}
+.dialog-image[hidden] {
+  display: none;
+}
+.menu-dialog:has(.dialog-image[hidden]) {
+  padding-top: 32px;
+}
+.dialog-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #c08a85;
+}
+
 /* ===== よくある質問 ===== */
 .faq details {
   border-bottom: 1px solid #ebe0da;
