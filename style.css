@@ -78,12 +78,36 @@ header a:hover {
   color: var(--color-hover);
 }
 
+/* ===== ホームだけ：写真に重なるヘッダー ===== */
+.home header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: transparent;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.home header.is-scrolled {
+  background-color: var(--color-header-footer);
+  box-shadow: 0 2px 8px rgba(58, 48, 45, 0.08);
+}
+
 /* ===== ヒーロー ===== */
 .hero-slides {
   position: relative;
-  max-width: 1000px;
-  margin: 24px auto 0;
-  aspect-ratio: 16 / 9;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+/* 写真の上の方をうっすら白くして、重なるヘッダーの文字を読みやすくする */
+.hero-slides::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 200px;
+  background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+  pointer-events: none;
 }
 .hero-slides img {
   position: absolute;
@@ -91,6 +115,81 @@ header a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 80%;
+  transform-origin: center bottom;
+  animation: hero-zoom 30s ease-in-out infinite alternate;
+}
+.hero-copy {
+  position: absolute;
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.9);
+}
+/* 小さな英語（ダンス教室の「For Every Dancer」の位置） */
+.hero-label {
+  margin: 0 0 20px;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 40px;
+  line-height: 1.2;
+  color: #a8606c;
+  text-shadow:
+  0 0 8px #FFF9F7,
+  0 0 16px #FFF9F7,
+  0 0 25px #FFF9F7;
+}
+/* 大きなキャッチコピー */
+.hero-catch {
+  margin: 0 0 28px;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  color: #6e3b47;
+  text-shadow:
+  0 0 8px #FFF9F7,
+  0 0 16px #FFF9F7,
+  0 0 25px #FFF9F7;
+}
+/* お店の説明（根拠 → 何のお店か） */
+.hero-sub {
+  margin: 0 0 40px;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 20px;
+  line-height: 2;
+  letter-spacing: 0.1em;
+  color: #6b5752;
+  text-shadow:
+  0 0 8px #FFF9F7,
+  0 0 16px #FFF9F7,
+  0 0 25px #FFF9F7;
+}
+/* 線だけのボタン（右に細い線） */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 32px;
+  border: 1px solid #8b5560;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #8b5560;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-shadow: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+.hero-btn::after {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background-color: currentColor;
+}
+.hero-btn:hover {
+  background-color: #8b5560;
+  color: #fff;
 }
 .hero-slides img:nth-child(2) {
   opacity: 0;
@@ -107,6 +206,14 @@ header a:hover {
   }
   100% {
     opacity: 0;
+  }
+}
+@keyframes hero-zoom {
+  from {
+    transform: translateX(3%) scale(1.06);
+  }
+  to {
+    transform: translateX(3%) scale(1.09);
   }
 }
 .hero-info {
@@ -454,8 +561,58 @@ footer p {
   .sns-link {
     gap: 15px;
   }
+  /* ホームのヘッダー：最初からピンク。写真に重ねず、写真はヘッダーの下から始める */
+  .home header {
+    position: static;
+    background-color: var(--color-header-footer);
+  }
   .hero-slides {
-    margin-top: 12px;
+    height: auto;
+  }
+  /* ヘッダーを重ねないので、写真の上の白いグラデーションは不要 */
+  .hero-slides::after {
+    display: none;
+  }
+  /* 横長の写真を切らずに、そのままの縦横比で見せる */
+  .hero-slides img {
+    position: relative;
+    height: auto;
+  }
+  .hero-copy {
+    position: static;
+    transform: none;
+    padding: 32px 20px 8px;
+    text-align: center;
+  }
+  /* 1段目だけ写真の左上（チュールの余白）に、縦書き2列で重ねる。基準は .hero-slides */
+  .hero-label {
+    position: absolute;
+    top: 5%;
+    left: 4%;
+    z-index: 1;
+    margin: 0;
+    writing-mode: vertical-lr; /* 縦書き。列は左から右へ並ぶ */
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  /* 2つの span をそれぞれ1列にする（PCでは横に1行のまま） */
+  .hero-label-1,
+  .hero-label-2 {
+    display: block;
+  }
+  /* 右の列を少し下にずらす */
+  .hero-label-2 {
+    margin-top: 1.5em;
+  }
+  .hero-catch {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .hero-sub {
+    margin-bottom: 28px;
+    font-size: 18px;
   }
   .hero-info {
     flex-direction: column;
@@ -485,7 +642,8 @@ footer p {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-slides img:nth-child(2),.news-text {
+  .hero-slides img,
+  .news-text {
     animation: none;
   }
 }

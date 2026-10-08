@@ -28,3 +28,13 @@ fetch(newsUrl)
   .catch(() => {
     setNewsSpeed();
   });
+
+// ヘッダー：少しスクロールしたら、透明からピンクに変える
+const header = document.querySelector("header");
+
+function updateHeader() {
+  header.classList.toggle("is-scrolled", window.scrollY > 50);
+}
+
+window.addEventListener("scroll", updateHeader);
+updateHeader();
