@@ -168,6 +168,10 @@ header a:hover {
     0 0 16px #fff9f7,
     0 0 25px #fff9f7;
 }
+/* スマホで写真に重ねるときだけ使う改行（PCでは消しておく） */
+.hero-br {
+  display: none;
+}
 /* 線だけのボタン（右に細い線） */
 .hero-btn {
   display: inline-flex;
@@ -648,43 +652,47 @@ footer p {
   .hero-copy {
     position: static;
     transform: none;
-    padding: 32px 20px 8px;
+    padding: 32px 20px 0;
     text-align: center;
   }
-  /* 1段目だけ写真の左上（チュールの余白）に、縦書き2列で重ねる。基準は .hero-slides */
+  /* 写真の下：お姫様に〜 → キャッチ3行 → ボタン */
   .hero-label {
-    position: absolute;
-    top: 5%;
-    left: 4%;
-    z-index: 1;
-    margin: 0;
-    writing-mode: vertical-lr; /* 縦書き。列は左から右へ並ぶ */
-    font-size: 20px;
-    line-height: 1.4;
-    letter-spacing: 0.1em;
-    white-space: nowrap;
-  }
-  /* 2つの span をそれぞれ1列にする（PCでは横に1行のまま） */
-  .hero-label-1,
-  .hero-label-2 {
-    display: block;
-  }
-  /* 右の列を少し下にずらす */
-  .hero-label-2 {
-    margin-top: 1.5em;
+    margin: 0 0 16px;
+    font-size: 22px;
+    letter-spacing: 0.08em;
   }
   .hero-catch {
-    margin-bottom: 20px;
+    margin-bottom: 32px;
     font-size: 14px;
+    line-height: 2;
   }
+  /* 「かわいいは、わたしを強くする。」は写真の左上（チュールの余白）に2行で重ねる。基準は .hero-slides */
   .hero-sub {
-    margin-bottom: 28px;
+    position: absolute;
+    top: 4%;
+    left: 5%;
+    z-index: 1;
+    margin: 0;
     font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
   }
+  .hero-br {
+    display: inline;
+  }
+  /* h1・営業時間は控えめにして、キャッチを主役にする */
   .hero-info {
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
+    padding: 32px 20px;
+  }
+  .hero-info h1 {
+    font-size: 15px;
+  }
+  .hero-info p {
+    font-size: 14px;
+    color: var(--color-text-sub-on-pink);
   }
   .last-order {
     display: block;
