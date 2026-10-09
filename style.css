@@ -78,7 +78,9 @@ header a {
 header a:hover {
   color: var(--color-hover);
 }
-
+.menu-toggle {
+  display: none;
+}
 /* ===== ホームだけ：写真に重なるヘッダー ===== */
 .home header {
   position: fixed;
@@ -602,12 +604,33 @@ footer p {
 /* ===== スマホ（必ず一番下） ===== */
 @media (max-width: 600px) {
   header {
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr auto 1fr auto;
     grid-template-areas:
-      "logo name sns"
-      "nav  nav  nav";
+      "logo name sns toggle"
+      "nav  nav  nav nav";
     gap: 8px 12px;
     padding: 12px 16px;
+  }
+  header nav {
+    display: none;
+  }
+  header.is-open nav {
+    display: block;
+  }
+  .menu-toggle {
+    display: block;
+    grid-area: toggle;
+    width: 28px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    display: block;
+    height: 2px;
+    margin: 6px 0;
+    background-color: #6e3b47;
   }
   .logo {
     justify-self: end;
@@ -620,11 +643,13 @@ footer p {
     font-size: 26px;
   }
   .nav-list {
-    flex-wrap: wrap;
-    gap: 4px 12px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
   }
-  .nav-home {
-    display: none;
+  .nav-list a {
+    display: block;
+    padding: 10px;
   }
   .sns-link img {
     width: 30px;
