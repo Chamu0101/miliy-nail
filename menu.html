@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>メニュー｜miliy nail</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="nav.js" defer></script>
     <script src="menu.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap"
@@ -33,13 +34,18 @@
           <img src="images/line.webp" alt="LINE" />
         </a>
       </div>
+      <button type="button" class="menu-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav>
         <ul class="nav-list">
           <li class="nav-home"><a href="index.html">ホーム</a></li>
           <li><a href="menu.html">メニュー</a></li>
           <li><a href="faq.html">よくある質問</a></li>
           <li><a href="access.html">アクセス</a></li>
-          <li><a href="reservation.html">ご予約</a></li>
+          <li class="nav-reserve"><a href="reservation.html">ご予約</a></li>
         </ul>
       </nav>
     </header>

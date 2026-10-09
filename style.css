@@ -603,20 +603,46 @@ footer p {
 }
 /* ===== スマホ（必ず一番下） ===== */
 @media (max-width: 600px) {
+  /* ナビは画面全体に重ねるので、座席表は1段だけにする */
   header {
     grid-template-columns: 1fr auto 1fr auto;
-    grid-template-areas:
-      "logo name sns toggle"
-      "nav  nav  nav nav";
-    gap: 8px 12px;
+    grid-template-areas: "logo name sns toggle";
+    gap: 12px;
     padding: 12px 16px;
   }
+  /* ロゴ・店名・アイコン・三本線は、開いたメニューより手前に出す */
+  .logo,
+  .site-name,
+  .sns-link,
+  .menu-toggle {
+    position: relative;
+    z-index: 21;
+  }
+
+  /* ----- ハンバーガーメニュー：画面全体にふわっと出るピンクの幕 ----- */
   header nav {
-    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    padding: 120px 40px 40px;
+    background-color: rgba(255, 239, 255, 0.95); /* --color-header-footer を少し透かした色 */
+    backdrop-filter: blur(6px); /* 後ろのページをぼかす */
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.4s,
+      visibility 0.4s;
   }
   header.is-open nav {
-    display: block;
+    opacity: 1;
+    visibility: visible;
   }
+  /* メニューを開いている間は、後ろのページをスクロールさせない */
+  body:has(header.is-open) {
+    overflow: hidden;
+  }
+
+  /* 三本線のボタン */
   .menu-toggle {
     display: block;
     grid-area: toggle;
@@ -631,6 +657,19 @@ footer p {
     height: 2px;
     margin: 6px 0;
     background-color: #6e3b47;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+  }
+  /* 開いたら三本線を × にする（上下の線を真ん中に寄せて斜めに、真ん中の線は消す） */
+  header.is-open .menu-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  header.is-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  header.is-open .menu-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
   .logo {
     justify-self: end;
@@ -642,14 +681,47 @@ footer p {
     justify-self: center;
     font-size: 26px;
   }
+  /* メニューの中の並び（ダンス教室と同じく、予約ボタン → 各ページの順、左揃え） */
   .nav-list {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 0;
   }
+  .nav-list li {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.4s,
+      transform 0.4s;
+  }
+  /* 開いたら1項目ずつ、少しずつ遅れて浮かび上がる */
+  header.is-open .nav-list li {
+    opacity: 1;
+    transform: none;
+  }
+  header.is-open .nav-list li:nth-child(1) { transition-delay: 0.15s; }
+  header.is-open .nav-list li:nth-child(2) { transition-delay: 0.2s; }
+  header.is-open .nav-list li:nth-child(3) { transition-delay: 0.25s; }
+  header.is-open .nav-list li:nth-child(4) { transition-delay: 0.3s; }
+  header.is-open .nav-list li:nth-child(5) { transition-delay: 0.1s; }
   .nav-list a {
     display: block;
-    padding: 10px;
+    padding: 16px 0;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    color: #6e3b47;
+  }
+  /* ご予約だけ一番上に出して、枠線のボタンにする */
+  .nav-reserve {
+    order: -1;
+    margin-bottom: 24px;
+  }
+  .nav-reserve a {
+    padding: 16px;
+    border: 1px solid #8b5560;
+    color: #8b5560;
+    text-align: center;
   }
   .sns-link img {
     width: 30px;
@@ -768,5 +840,10 @@ footer p {
   .hero-slides img,
   .news-text {
     animation: none;
+  }
+  header nav,
+  .nav-list li,
+  .menu-toggle span {
+    transition: none;
   }
 }
