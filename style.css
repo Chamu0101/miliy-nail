@@ -3,6 +3,7 @@
   --color-header-footer: #ffefff;
   --color-text-sub-on-pink: #6b5752;
   --color-hover: #94504a;
+  --color-bg-pink: #fff7f9;
 }
 
 /* ===== 全体 ===== */
@@ -86,7 +87,9 @@ header a:hover {
   right: 0;
   z-index: 10;
   background-color: transparent;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
 }
 .home header.is-scrolled {
   background-color: var(--color-header-footer);
@@ -135,9 +138,9 @@ header a:hover {
   line-height: 1.2;
   color: #a8606c;
   text-shadow:
-  0 0 8px #FFF9F7,
-  0 0 16px #FFF9F7,
-  0 0 25px #FFF9F7;
+    0 0 8px #fff9f7,
+    0 0 16px #fff9f7,
+    0 0 25px #fff9f7;
 }
 /* 大きなキャッチコピー */
 .hero-catch {
@@ -148,9 +151,9 @@ header a:hover {
   letter-spacing: 0.12em;
   color: #6e3b47;
   text-shadow:
-  0 0 8px #FFF9F7,
-  0 0 16px #FFF9F7,
-  0 0 25px #FFF9F7;
+    0 0 8px #fff9f7,
+    0 0 16px #fff9f7,
+    0 0 25px #fff9f7;
 }
 /* お店の説明（根拠 → 何のお店か） */
 .hero-sub {
@@ -161,9 +164,9 @@ header a:hover {
   letter-spacing: 0.1em;
   color: #6b5752;
   text-shadow:
-  0 0 8px #FFF9F7,
-  0 0 16px #FFF9F7,
-  0 0 25px #FFF9F7;
+    0 0 8px #fff9f7,
+    0 0 16px #fff9f7,
+    0 0 25px #fff9f7;
 }
 /* 線だけのボタン（右に細い線） */
 .hero-btn {
@@ -179,7 +182,9 @@ header a:hover {
   letter-spacing: 0.1em;
   text-decoration: none;
   text-shadow: none;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 .hero-btn::after {
   content: "";
@@ -233,6 +238,70 @@ header a:hover {
 .hero-info p {
   margin: 0;
   font-size: 18px;
+}
+
+/* ===== 選ばれる理由 ===== */
+.reason {
+  padding: 80px 20px;
+  background-color: var(--color-bg-pink);
+}
+.section-label {
+  font-family: "Great Vibes", cursive;
+  font-size: 36px;
+  color: #a8606c;
+  text-align: center;
+  margin: 0;
+}
+.reason h2 {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  text-align: center;
+  margin: 0 0 48px;
+}
+.reason-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 80px;
+}
+.reason-list li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.reason-list img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.reason-list li:nth-child(even) img {
+  order: 2;
+}
+.reason-num {
+  display: block;
+  font-family: "Cormorant Garamond",serif;
+  font-size: 48px;
+  line-height: 1;
+  color: #a8606c;
+}
+.reason-body h3 {
+  margin: 12px 0 16px;
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  color: #6e3b47;
+}
+.reason-body p {
+  margin: 0;
+  line-height: 2;
+  color: var(--color-text-sub-on-pink);
+}
+.reason-cta {
+  margin: 64px 0 0;
+  text-align: center;
 }
 
 /* ===== セクション共通 ===== */
@@ -306,7 +375,6 @@ main a {
     transform: translateX(-100%);
   }
 }
-
 
 /* ===== コンセプト ===== */
 .concept {
@@ -527,7 +595,6 @@ footer {
 footer p {
   margin: 4px 0;
 }
-
 /* ===== スマホ（必ず一番下） ===== */
 @media (max-width: 600px) {
   header {
@@ -556,7 +623,7 @@ footer p {
     display: none;
   }
   .sns-link img {
-    width: 30px;   
+    width: 30px;
   }
   .sns-link {
     gap: 15px;
@@ -640,7 +707,30 @@ footer p {
   .concept h2 {
     font-size: 20px;
   }
+  .reason {
+    padding: 56px 16px;
+  }
+  .section-label {
+    font-size: 28px;
+  }
+  .reason-list {
+    gap: 56px;
+  }
+  .reason-list li {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .reason-list li:nth-child(even) img {
+    order: 0;
+  }
+  .reason-num {
+    font-size: 40px;
+  }
+  .reason-body h3 {
+    font-size: 18px;
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
   .hero-slides img,
   .news-text {
