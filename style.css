@@ -737,9 +737,17 @@ footer p {
   .hero-slides {
     height: auto;
   }
-  /* ヘッダーを重ねないので、写真の上の白いグラデーションは不要 */
+  /* 写真の左側を白くぼかして、文字を読みやすくする（イメージ画像と同じ） */
   .hero-slides::after {
-    display: none;
+    inset: 0 auto auto 0;
+    width: 60%;
+    height: 56.25vw; /* 写真の高さだけ（下の文字にはかけない） */
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0.3) 35%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
   /* 横長の写真を切らずに、そのままの縦横比で見せる */
   .hero-slides img {
@@ -763,16 +771,34 @@ footer p {
     font-size: 14px;
     line-height: 2;
   }
-  /* 「かわいいは、わたしを強くする。」は写真の左上（チュールの余白）に2行で重ねる。基準は .hero-slides */
+  /* 「かわいいは／わたしを強くする」は写真の左側に2行で重ねる（奥さんのイメージ画像に合わせる）。基準は .hero-slides */
   .hero-sub {
     position: absolute;
-    top: 4%;
+    top: 25vw; /* 写真の高さ（画面幅 × 9/16 ≒ 56vw）の真ん中より少し上。爪の先にかからない位置 */
     left: 5%;
     z-index: 1;
+    transform: translateY(-50%);
     margin: 0;
-    font-size: 18px;
-    line-height: 1.6;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 13px;
+    line-height: 2.2;
+    letter-spacing: 0.14em;
+    color: #c27a8c;
     text-align: left;
+  }
+  /* 文字ごとに大きさを変えて、強弱をつける */
+  .sub-l {
+    font-size: 1.45em;
+  }
+  .sub-m {
+    font-size: 1.1em;
+  }
+  .sub-s {
+    font-size: 0.95em;
+  }
+  /* 写真の上では句読点を出さない（PCでは出す） */
+  .sub-punct {
+    display: none;
   }
   .hero-br {
     display: inline;
