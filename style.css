@@ -309,6 +309,9 @@ header a:hover {
   margin: 64px 0 0;
   text-align: center;
 }
+.reason-more {
+  display: none;
+}
 
 /* ===== セクション共通 ===== */
 .page-title,
@@ -860,6 +863,34 @@ footer p {
   .reason-body h3 {
     font-size: 18px;
   }
+  .home .reason-list img,
+  .home .reason-body p {
+    display: none;
+  }
+  .home .reason-list {
+    gap: 16px;
+  }
+  .home .reason-body {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .home .reason-num {
+    font-size: 28px;
+  }
+  .home .reason-body h3 {
+    margin: 0;
+  }
+  .home .reason-cta {
+    margin-top: 32px;
+  }
+  .home .reason-more {
+    display: inline-flex;
+  }
+  .home .reason-cta .hero-btn:not(.reason-more) {
+    display: none;
+  }
+  
 }
 
 @media (prefers-reduced-motion: reduce) {
