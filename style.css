@@ -763,11 +763,9 @@ footer p {
     padding: 32px 20px 0;
     text-align: center;
   }
-  /* 写真の下：お姫様に〜 → キャッチ3行 → ボタン */
+  /* 写真の下：キャッチ3行 → ボタン（「お姫様になれる魔法…♡」はスマホでは出さない） */
   .hero-label {
-    margin: 0 0 16px;
-    font-size: 22px;
-    letter-spacing: 0.08em;
+    display: none;
   }
   .hero-catch {
     margin-bottom: 32px;
