@@ -1098,6 +1098,31 @@ footer p {
   .reason-body h3 {
     font-size: 18px;
   }
+  /* メニューページ：スマホでは名前が長いと途中で折り返すので、所要時間は名前の下に小さく出す
+     ┌名前──────────┬料金┬›┐
+     └所要時間────────┴　　┴　┘ */
+  .menu-button {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+      "name price arrow"
+      "time price arrow";
+    gap: 0 12px; /* 上下のすき間は0（PC用の gap: 12px が上下にも効いてしまうため） */
+    align-items: center;
+  }
+  .menu-button .menu-name {
+    grid-area: name;
+  }
+  .menu-button .menu-time {
+    grid-area: time;
+    font-size: 13px;
+  }
+  .menu-button .menu-price {
+    grid-area: price;
+  }
+  .menu-button::after {
+    grid-area: arrow;
+  }
   /* 線のボタン：スマホでは余白と横線を少し小さくして、文字が途中で改行されないようにする */
   .btn-line {
     gap: 16px;
