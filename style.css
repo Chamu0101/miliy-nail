@@ -7,6 +7,10 @@
 }
 
 /* ===== 全体 ===== */
+/* 目次などのページ内リンクを押したとき、なめらかにスクロールする */
+html {
+  scroll-behavior: smooth;
+}
 * {
   box-sizing: border-box;
 }
@@ -172,6 +176,10 @@ header a:hover {
 }
 /* スマホで写真に重ねるときだけ使う改行（PCでは消しておく） */
 .hero-br {
+  display: none;
+}
+/* スマホだけで使う目次（PCでは隠す） */
+.hero-toc {
   display: none;
 }
 /* 線だけのボタン（右に細い線） */
@@ -915,10 +923,40 @@ footer p {
   .hero-label {
     display: none;
   }
+  /* スマホでは「誰かのためじゃなく〜」の3行を出さず、代わりに目次を出す */
   .hero-catch {
-    margin-bottom: 32px;
+    display: none;
+  }
+  .hero-toc {
+    display: block;
+    margin: 0 0 32px;
+  }
+  .hero-toc ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2列×2段 */
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .hero-toc a {
+    display: block;
+    padding: 12px 8px;
+    border: 1px solid #e6c4cc;
+    border-radius: 999px;
+    background-color: #fff;
     font-size: 14px;
-    line-height: 2;
+    letter-spacing: 0.05em;
+    color: #6e3b47;
+    text-decoration: none;
+  }
+  /* 右に小さな下向き矢印（押すとページの下へ進む目印） */
+  .hero-toc a::after {
+    content: "›";
+    display: inline-block;
+    margin-left: 6px;
+    transform: rotate(90deg);
+    color: #a8606c;
   }
   /* 「かわいいは／わたしを強くする」は写真の左側に2行で重ねる（奥さんのイメージ画像に合わせる）。基準は .hero-slides */
   .hero-sub {
@@ -1041,6 +1079,9 @@ footer p {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .hero-slides img,
   .news-text {
     animation: none;
