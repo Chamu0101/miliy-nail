@@ -283,7 +283,7 @@ header a:hover {
 }
 .reason-num {
   display: block;
-  font-family: "Cormorant Garamond",serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 48px;
   line-height: 1;
   color: #a8606c;
@@ -308,7 +308,7 @@ header a:hover {
 .flow-list {
   max-width: 640px;
   margin: 0 auto;
-  padding:  0;
+  padding: 0;
   list-style: none;
 }
 .flow-list li {
@@ -316,7 +316,7 @@ header a:hover {
   padding: 0 0 32px 32px;
   border-left: 1px solid #e6c4cc;
 }
-.flow-list li:last-child{
+.flow-list li:last-child {
   border-left-color: transparent;
 }
 .flow-list li::before {
@@ -331,7 +331,7 @@ header a:hover {
 }
 .flow-step {
   display: block;
-  font-family: "Cormorant Garamond",serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 15px;
   letter-spacing: 0.15em;
   color: #a8606c;
@@ -593,9 +593,14 @@ main a {
 .menu-price {
   font-weight: bold;
 }
+/* 所要時間：料金の左に、料金より小さく薄い色で。時間と料金は途中で改行しない */
 .menu-time {
   font-size: 14px;
   color: #8a7b75;
+  white-space: nowrap;
+}
+.menu-price {
+  white-space: nowrap;
 }
 .menu p {
   text-align: center;
@@ -713,6 +718,18 @@ main a {
   padding: 0 12px 16px;
   color: #6b5752;
 }
+.reserve-guide {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 20px 0;
+  text-align: center;
+}
+.reserve-guide p {
+  color: var(--color-text-sub-on-pink);
+}
+.reserve-guide-btn {
+  margin: 24px 0 56px;
+}
 /* キャンセル規定（よくある質問ページの下） */
 .faq-policy {
   max-width: 720px;
@@ -806,7 +823,12 @@ footer p {
     inset: 0;
     z-index: 20;
     padding: 120px 40px 40px;
-    background-color: rgba(255, 239, 255, 0.95); /* --color-header-footer を少し透かした色 */
+    background-color: rgba(
+      255,
+      239,
+      255,
+      0.95
+    ); /* --color-header-footer を少し透かした色 */
     backdrop-filter: blur(6px); /* 後ろのページをぼかす */
     opacity: 0;
     visibility: hidden;
@@ -880,11 +902,21 @@ footer p {
     opacity: 1;
     transform: none;
   }
-  header.is-open .nav-list li:nth-child(1) { transition-delay: 0.15s; }
-  header.is-open .nav-list li:nth-child(2) { transition-delay: 0.2s; }
-  header.is-open .nav-list li:nth-child(3) { transition-delay: 0.25s; }
-  header.is-open .nav-list li:nth-child(4) { transition-delay: 0.3s; }
-  header.is-open .nav-list li:nth-child(5) { transition-delay: 0.1s; }
+  header.is-open .nav-list li:nth-child(1) {
+    transition-delay: 0.15s;
+  }
+  header.is-open .nav-list li:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  header.is-open .nav-list li:nth-child(3) {
+    transition-delay: 0.25s;
+  }
+  header.is-open .nav-list li:nth-child(4) {
+    transition-delay: 0.3s;
+  }
+  header.is-open .nav-list li:nth-child(5) {
+    transition-delay: 0.1s;
+  }
   .nav-list a {
     display: block;
     padding: 16px 0;
@@ -1076,7 +1108,6 @@ footer p {
   .btn-line::after {
     width: 24px;
   }
-  
 }
 
 @media (prefers-reduced-motion: reduce) {
