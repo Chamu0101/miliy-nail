@@ -57,10 +57,14 @@
     <main>
       <section class="hero">
         <div class="hero-slides">
-          <img
-            src="images/hero-nail-1.webp"
-            alt="ピンクのチュールとパールを合わせたネイルデザイン"
-          />
+          <!-- スマホ（600px以下）は左側が白く抜けたスマホ用の写真、PCは今までの写真 -->
+          <picture>
+            <source media="(max-width: 600px)" srcset="images/hero-nail-sp.webp" />
+            <img
+              src="images/hero-nail-1.webp"
+              alt="ピンクのチュールとパールを合わせたネイルデザイン"
+            />
+          </picture>
           <div class="hero-copy">
             <p class="hero-label">お姫様になれる魔法…♡</p>
             <p class="hero-catch">誰かのためじゃなく、自分のために。<br />何歳になっても“かわいい”を更新しよう。<br/>いつだって、ヒロインはわたし。</p>
