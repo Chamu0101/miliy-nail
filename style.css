@@ -321,9 +321,6 @@ header a:hover {
   margin: 64px 0 0;
   text-align: center;
 }
-.reason-more {
-  display: none;
-}
 /* ===== はじめての方へ ===== */
 .flow-list {
   max-width: 640px;
@@ -1094,32 +1091,15 @@ footer p {
   .reason-body h3 {
     font-size: 18px;
   }
-  .home .reason-list img,
-  .home .reason-body p {
-    display: none;
-  }
-  .home .reason-list {
+  /* 線のボタン：スマホでは余白と横線を少し小さくして、文字が途中で改行されないようにする */
+  .btn-line {
     gap: 16px;
+    padding: 16px 24px;
+    font-size: 14px;
+    white-space: nowrap;
   }
-  .home .reason-body {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .home .reason-num {
-    font-size: 28px;
-  }
-  .home .reason-body h3 {
-    margin: 0;
-  }
-  .home .reason-cta {
-    margin-top: 32px;
-  }
-  .home .reason-more {
-    display: inline-flex;
-  }
-  .home .reason-cta .btn-line:not(.reason-more) {
-    display: none;
+  .btn-line::after {
+    width: 24px;
   }
   
 }
