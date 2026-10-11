@@ -722,6 +722,29 @@ main a {
   padding: 0 12px 16px;
   color: #6b5752;
 }
+/* キャンセル規定（よくある質問ページの下） */
+.faq-policy {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 20px;
+  color: var(--color-text-sub-on-pink);
+}
+.faq-policy h3 {
+  margin: 32px 0 8px;
+  font-size: 16px;
+  font-weight: normal;
+  color: #6e3b47;
+}
+.faq-policy ul {
+  margin: 0 0 12px;
+  padding-left: 1.2em;
+}
+.faq-policy li {
+  margin-bottom: 6px;
+}
+.faq-policy-note {
+  font-size: 14px;
+}
 
 /* ===== アートサンプル ===== */
 .sample {
