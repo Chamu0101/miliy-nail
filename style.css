@@ -1,9 +1,24 @@
 /* ===== 色 ===== */
+/* サイトで使う色はここにまとめる。色を変えたいときは、ここを1か所変えればサイト全体が変わる */
 :root {
-  --color-header-footer: #ffefff;
-  --color-text-sub-on-pink: #6b5752;
-  --color-hover: #94504a;
-  --color-bg-pink: #fff7f9;
+  /* 背景 */
+  --color-header-footer: #ffefff; /* ヘッダー・フッター・お知らせの帯のピンク */
+  --color-bg-pink: #fff7f9; /* セクションの背景のうすいピンク */
+  /* 文字 */
+  --color-text: #3a302d; /* 本文の基本の色 */
+  --color-text-sub-on-pink: #6b5752; /* 説明文の色 */
+  --color-text-light: #8a7b75; /* 所要時間など、控えめにしたい文字 */
+  --color-heading: #6e3b47; /* 見出し（h3）・キャッチの濃いローズ */
+  /* アクセント（ローズ系） */
+  --color-rose: #a8606c; /* 英字ラベル・番号・丸い点など */
+  --color-rose-soft: #c27a8c; /* スマホのヒーローの明朝体の文字 */
+  --color-button: #8b5560; /* 線のボタンの枠と文字 */
+  --color-link: #c08a85; /* 文字のリンク・メニューの見出し */
+  --color-hover: #94504a; /* マウスを乗せたとき */
+  /* 線 */
+  --color-line-pink: #e6c4cc; /* ピンクの線（タイムラインの縦線・目次のボタンの枠など） */
+  --color-border: #ebe0da; /* ベージュの区切り線（メニュー・よくある質問） */
+  --color-glow: #fff9f7; /* 写真の上の文字につける、白っぽい光（text-shadow） */
 }
 
 /* ===== 全体 ===== */
@@ -16,7 +31,7 @@ html {
 }
 body {
   margin: 0;
-  color: #3a302d;
+  color: var(--color-text);
   line-height: 1.8;
 }
 img {
@@ -79,7 +94,7 @@ header nav {
 }
 header a {
   text-decoration: none;
-  color: #3a302d;
+  color: var(--color-text);
   transition: color 0.2s;
 }
 header a:hover {
@@ -145,11 +160,11 @@ header a:hover {
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 40px;
   line-height: 1.2;
-  color: #a8606c;
+  color: var(--color-rose);
   text-shadow:
-    0 0 8px #fff9f7,
-    0 0 16px #fff9f7,
-    0 0 25px #fff9f7;
+    0 0 8px var(--color-glow),
+    0 0 16px var(--color-glow),
+    0 0 25px var(--color-glow);
 }
 /* 大きなキャッチコピー */
 .hero-catch {
@@ -158,11 +173,11 @@ header a:hover {
   font-size: 15px;
   line-height: 1.6;
   letter-spacing: 0.12em;
-  color: #6e3b47;
+  color: var(--color-heading);
   text-shadow:
-    0 0 8px #fff9f7,
-    0 0 16px #fff9f7,
-    0 0 25px #fff9f7;
+    0 0 8px var(--color-glow),
+    0 0 16px var(--color-glow),
+    0 0 25px var(--color-glow);
 }
 /* お店の説明（根拠 → 何のお店か） */
 .hero-sub {
@@ -171,11 +186,11 @@ header a:hover {
   font-size: 20px;
   line-height: 2;
   letter-spacing: 0.1em;
-  color: #6b5752;
+  color: var(--color-text-sub-on-pink);
   text-shadow:
-    0 0 8px #fff9f7,
-    0 0 16px #fff9f7,
-    0 0 25px #fff9f7;
+    0 0 8px var(--color-glow),
+    0 0 16px var(--color-glow),
+    0 0 25px var(--color-glow);
 }
 /* スマホで写真に重ねるときだけ使う改行（PCでは消しておく） */
 .hero-br {
@@ -191,9 +206,9 @@ header a:hover {
   align-items: center;
   gap: 24px;
   padding: 18px 32px;
-  border: 1px solid #8b5560;
+  border: 1px solid var(--color-button);
   background-color: rgba(255, 255, 255, 0.5);
-  color: #8b5560;
+  color: var(--color-button);
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 15px;
   letter-spacing: 0.1em;
@@ -210,7 +225,7 @@ header a:hover {
   background-color: currentColor;
 }
 .btn-line:hover {
-  background-color: #8b5560;
+  background-color: var(--color-button);
   color: #fff;
 }
 @keyframes hero-zoom {
@@ -249,7 +264,7 @@ header a:hover {
 .section-label {
   font-family: "Great Vibes", cursive;
   font-size: 36px;
-  color: #a8606c;
+  color: var(--color-rose);
   text-align: center;
   margin: 0;
 }
@@ -289,14 +304,14 @@ header a:hover {
   font-family: "Cormorant Garamond", serif;
   font-size: 48px;
   line-height: 1;
-  color: #a8606c;
+  color: var(--color-rose);
 }
 .reason-body h3 {
   margin: 12px 0 16px;
   font-size: 20px;
   font-weight: normal;
   letter-spacing: 0.05em;
-  color: #6e3b47;
+  color: var(--color-heading);
 }
 .reason-body p {
   margin: 0;
@@ -317,7 +332,7 @@ header a:hover {
 .flow-list li {
   position: relative;
   padding: 0 0 32px 32px;
-  border-left: 1px solid #e6c4cc;
+  border-left: 1px solid var(--color-line-pink);
 }
 .flow-list li:last-child {
   border-left-color: transparent;
@@ -330,20 +345,20 @@ header a:hover {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background-color: #a8606c;
+  background-color: var(--color-rose);
 }
 .flow-step {
   display: block;
   font-family: "Cormorant Garamond", serif;
   font-size: 15px;
   letter-spacing: 0.15em;
-  color: #a8606c;
+  color: var(--color-rose);
 }
 .flow-list h3 {
   margin: 4px 0 8px;
   font-size: 17px;
   font-weight: normal;
-  color: #6e3b47;
+  color: var(--color-heading);
 }
 .flow-list p {
   margin: 0;
@@ -366,7 +381,7 @@ header a:hover {
     bottom: 0;
     left: 50%;
     width: 1px;
-    background-color: #e6c4cc;
+    background-color: var(--color-line-pink);
   }
   .flow-list li {
     width: 50%;
@@ -437,7 +452,7 @@ header a:hover {
   font-size: 16px;
   font-weight: normal;
   text-align: center;
-  color: #6e3b47;
+  color: var(--color-heading);
 }
 .first-notes ul {
   margin: 0;
@@ -478,7 +493,7 @@ main p {
   margin: 0 0 12px;
 }
 main a {
-  color: #c08a85;
+  color: var(--color-link);
 }
 
 /* ===== 下層ページの見出し ===== */
@@ -493,12 +508,12 @@ main a {
 }
 .page-title p {
   font-size: 14px;
-  color: #8a7b75;
+  color: var(--color-text-light);
 }
 /* ===== お知らせ ===== */
 .news {
   overflow: hidden;
-  background-color: #ffefff;
+  background-color: var(--color-header-footer);
   padding: 10px 0;
   white-space: nowrap;
 }
@@ -539,7 +554,7 @@ main a {
   align-items: baseline;
   gap: 12px;
   padding: 12px;
-  border-bottom: 1px solid #ebe0da;
+  border-bottom: 1px solid var(--color-border);
 }
 .menu-name {
   flex: 1;
@@ -550,7 +565,7 @@ main a {
 /* 所要時間：料金の左に、料金より小さく薄い色で。時間と料金は途中で改行しない */
 .menu-time {
   font-size: 14px;
-  color: #8a7b75;
+  color: var(--color-text-light);
   white-space: nowrap;
 }
 .menu-price {
@@ -582,9 +597,9 @@ main a {
   margin-bottom: 4px;
   padding: 2px 10px;
   font-size: 12px;
-  color: #a8606c; /* 背景がうすいピンクになったので、文字は白から濃いローズに */
+  color: var(--color-rose); /* 背景がうすいピンクになったので、文字は白から濃いローズに */
   background-color: var(--color-header-footer); /* ヘッダーのピンク */
-  border: 1px solid #e6c4cc; /* うすいピンク同士で見分けがつくように細い枠を付ける */
+  border: 1px solid var(--color-line-pink); /* うすいピンク同士で見分けがつくように細い枠を付ける */
   border-radius: 999px;
 }
 
@@ -592,7 +607,7 @@ main a {
 .menu-section h3 {
   margin: 32px 0 8px;
   font-size: 16px;
-  color: #c08a85;
+  color: var(--color-link);
   letter-spacing: 0.05em;
 }
 /* ===== メニューのポップアップ ===== */
@@ -636,16 +651,16 @@ main a {
   display: block;
   margin: 24px auto 0;
   padding: 10px 32px;
-  border: 1px solid #c08a85;
+  border: 1px solid var(--color-link);
   border-radius: 999px;
   background: none;
-  color: #c08a85;
+  color: var(--color-link);
   font: inherit;
   cursor: pointer;
 }
 .menu-button::after {
   content: "›";
-  color: #c08a85;
+  color: var(--color-link);
 }
 .dialog-image[hidden] {
   display: none;
@@ -656,12 +671,12 @@ main a {
 .dialog-price {
   font-size: 18px;
   font-weight: bold;
-  color: #c08a85;
+  color: var(--color-link);
 }
 
 /* ===== よくある質問 ===== */
 .faq details {
-  border-bottom: 1px solid #ebe0da;
+  border-bottom: 1px solid var(--color-border);
 }
 .faq summary {
   padding: 16px 12px;
@@ -670,7 +685,7 @@ main a {
 .faq details p {
   margin: 0;
   padding: 0 12px 16px;
-  color: #6b5752;
+  color: var(--color-text-sub-on-pink);
 }
 .reserve-guide {
   max-width: 720px;
@@ -695,7 +710,7 @@ main a {
   margin: 32px 0 8px;
   font-size: 16px;
   font-weight: normal;
-  color: #6e3b47;
+  color: var(--color-heading);
 }
 .faq-policy ul {
   margin: 0 0 12px;
@@ -734,12 +749,12 @@ main a {
 }
 .access-list dt {
   font-size: 14px;
-  color: #6b5752;
+  color: var(--color-text-sub-on-pink);
 }
 .access-note {
   display: block;
   font-size: 14px;
-  color: #8a7b75;
+  color: var(--color-text-light);
 }
 
 /* ===== フッター ===== */
@@ -813,7 +828,7 @@ footer p {
     display: block;
     height: 2px;
     margin: 6px 0;
-    background-color: #6e3b47;
+    background-color: var(--color-heading);
     transition:
       transform 0.3s,
       opacity 0.3s;
@@ -877,7 +892,7 @@ footer p {
     font-family: "Zen Kaku Gothic New", sans-serif;
     font-size: 18px;
     letter-spacing: 0.12em;
-    color: #6e3b47;
+    color: var(--color-heading);
   }
   /* ご予約だけ一番上に出して、枠線のボタンにする */
   .nav-reserve {
@@ -886,8 +901,8 @@ footer p {
   }
   .nav-reserve a {
     padding: 16px;
-    border: 1px solid #8b5560;
-    color: #8b5560;
+    border: 1px solid var(--color-button);
+    color: var(--color-button);
     text-align: center;
   }
   .sns-link img {
@@ -945,12 +960,12 @@ footer p {
   .hero-toc a {
     display: block;
     padding: 12px 8px;
-    border: 1px solid #e6c4cc;
+    border: 1px solid var(--color-line-pink);
     border-radius: 999px;
     background-color: #fff;
     font-size: 14px;
     letter-spacing: 0.05em;
-    color: #6e3b47;
+    color: var(--color-heading);
     text-decoration: none;
   }
   /* 右に小さな下向き矢印（押すとページの下へ進む目印） */
@@ -959,7 +974,7 @@ footer p {
     display: inline-block;
     margin-left: 6px;
     transform: rotate(90deg);
-    color: #a8606c;
+    color: var(--color-rose);
   }
   /* 「かわいいは／わたしを強くする」は写真の左側に2行で重ねる（奥さんのイメージ画像に合わせる）。基準は .hero-slides */
   .hero-sub {
@@ -973,7 +988,7 @@ footer p {
     font-size: 13px;
     line-height: 2.2;
     letter-spacing: 0.14em;
-    color: #c27a8c;
+    color: var(--color-rose-soft);
     text-align: left;
   }
   /* 文字ごとに大きさを変えて、強弱をつける */
