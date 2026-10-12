@@ -36,6 +36,9 @@ header {
   gap: 8px 24px;
   padding: 16px 32px;
   background-color: var(--color-header-footer);
+  position: sticky;
+  top: 0;
+  z-index: 30;
 }
 .logo {
   grid-area: logo;
@@ -453,10 +456,7 @@ header a:hover {
 
 /* ===== セクション共通 ===== */
 .page-title,
-.concept,
-.notice,
 .reserve,
-.about,
 .menu,
 .menu-section,
 .faq,
@@ -523,54 +523,8 @@ main a {
   }
 }
 
-/* ===== コンセプト ===== */
-.concept {
-  text-align: center;
-}
-.concept h2 {
-  font-size: 24px;
-}
-.concept p {
-  color: #8a7b75;
-}
-
-/* ===== 猫のご案内 ===== */
-.notice {
-  margin: 24px auto;
-  padding: 32px 24px;
-  background-color: #f6f1ec;
-  border-radius: 12px;
-}
-
 /* ===== 予約ボタン ===== */
 .reserve {
-  text-align: center;
-}
-.btn {
-  display: inline-block;
-  padding: 14px 40px;
-  background-color: #c08a85;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 999px;
-  transition: background-color 0.2s;
-}
-.btn:hover {
-  background-color: #a9746f;
-}
-
-/* ===== 当サロンについて ===== */
-.about-list {
-  display: grid;
-  gap: 12px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.about-list li {
-  padding: 12px 16px;
-  border: 1px solid #ebe0da;
-  border-radius: 8px;
   text-align: center;
 }
 
@@ -944,8 +898,11 @@ footer p {
   }
   /* ホームのヘッダー：最初からピンク。写真に重ねず、写真はヘッダーの下から始める */
   .home header {
-    position: static;
+    position: sticky;
     background-color: var(--color-header-footer);
+  }
+  [id] {
+    scroll-margin-top: 96px;
   }
   .hero-slides {
     height: auto;
@@ -1054,9 +1011,7 @@ footer p {
     display: block;
   }
   .page-title,
-  .concept,
   .reserve,
-  .about,
   .menu,
   .menu-section,
   .faq,
@@ -1064,15 +1019,11 @@ footer p {
   .access-section {
     padding: 40px 16px;
   }
-  .notice {
-    margin: 24px 16px;
-  }
   .menu,
   .sample {
     padding: 56px 16px;
   }
-  main h2,
-  .concept h2 {
+  main h2 {
     font-size: 20px;
   }
   .reason,

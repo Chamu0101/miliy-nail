@@ -29,6 +29,9 @@ fetch(newsUrl)
     setNewsSpeed();
   });
 
+// 画面の幅が変わったら（スマホを横向きにした、ウィンドウの大きさを変えた など）、流れる速さを計算し直す
+window.addEventListener("resize", setNewsSpeed);
+
 // ヘッダー：少しスクロールしたら、透明からピンクに変える
 const header = document.querySelector("header");
 
