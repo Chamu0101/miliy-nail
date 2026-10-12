@@ -763,6 +763,17 @@ footer {
 footer p {
   margin: 4px 0;
 }
+/* ===== スクロールでふわっと出す ===== */
+.js .fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s,transform 0.8s;
+}
+.js .fade-up.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 /* ===== スマホ（必ず一番下） ===== */
 @media (max-width: 600px) {
   /* ナビは画面全体に重ねるので、座席表は1段だけにする */
@@ -1107,6 +1118,11 @@ footer p {
   header nav,
   .nav-list li,
   .menu-toggle span {
+    transition: none;
+  }
+  .js .fade-up {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }
