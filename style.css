@@ -430,19 +430,14 @@ header a:hover {
   .flow-step {
     display: none;
   }
-  /* 流れの下の「所要時間」と少し間をあける（下にある .flow-time の指定に負けないよう .first を付ける） */
-  .first .flow-time {
-    margin-top: 56px;
+  /* 流れと「ご来店前のお願い」の間をあける（下にある .first-notes の指定に負けないよう .first を付ける） */
+  .first .first-notes {
+    margin-top: 72px;
   }
-}
-.flow-time {
-  margin: 8px auto 40px;
-  text-align: center;
-  color: var(--color-text-sub-on-pink);
 }
 .first-notes {
   max-width: 640px;
-  margin: 0 auto;
+  margin: 16px auto 0; /* スマホは最後の STEP の下に 32px の余白があるので、少しだけ足す */
   padding: 24px;
   background-color: #fff;
   border-radius: 12px;
