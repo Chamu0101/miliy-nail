@@ -1105,6 +1105,14 @@ footer p {
   .btn-line::after {
     width: 24px;
   }
+  /* 長い文章は中央揃えだと変な所で改行されるので、スマホでは左揃えにする（ボタンは中央のまま） */
+  .page-title p,
+  .reserve-guide p {
+    text-align: left;
+  }
+  .reserve-guide .reserve-guide-btn {
+    text-align: center;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1124,5 +1132,195 @@ footer p {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* ===== お客様の声 ===== */
+.voice {
+  padding: 80px 20px;
+}
+.voice[hidden] {
+  display: none;
+}
+.voice h2 {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  text-align: center;
+  margin: 0 0 48px;
+}
+
+/* 横に並べてスクロールする箱 */
+.voice-slider {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.voice-list {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+  margin: 0;
+  padding: 4px 0 16px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.voice-list::-webkit-scrollbar {
+  display: none;
+}
+.voice-card {
+  flex: 0 0 calc((100% - 48px) / 3); /* パソコンは3件ずつ見える */
+  scroll-snap-align: start;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* 件数が少なくて箱に収まるときは中央に寄せる */
+.voice-card:first-child {
+  margin-left: auto;
+}
+.voice-card:last-child {
+  margin-right: auto;
+}
+
+/* カードの中身 */
+.voice-head {
+  display: flex;
+  flex-wrap: wrap; /* 幅が足りないときは日付を次の行へ送る */
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 8px;
+}
+.voice-name {
+  margin: 0;
+  font-size: 16px;
+  color: var(--color-heading);
+}
+.voice-age {
+  margin-left: 8px;
+  font-size: 13px;
+  color: var(--color-text-light);
+  white-space: nowrap; /* 「30代〜40代」の途中で改行させない */
+}
+.voice-date {
+  font-size: 12px;
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+.voice-menu {
+  align-self: flex-start;
+  margin: 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: var(--color-bg-pink);
+  color: var(--color-rose);
+}
+.voice-rating {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-sub-on-pink);
+}
+.voice-rating li {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--color-line-pink);
+}
+.voice-rating span:last-child {
+  color: var(--color-rose);
+}
+.voice-text {
+  margin: 0;
+  line-height: 1.9;
+  color: var(--color-text);
+  white-space: pre-line;
+}
+.voice-note {
+  max-width: 1000px;
+  margin: 32px auto 0;
+  font-size: 12px;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+/* パソコン：左右の矢印ボタン */
+@media (min-width: 1024px) {
+  .voice-slider {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    gap: 16px;
+  }
+  .voice-prev {
+    grid-column: 1;
+  }
+  .voice-list {
+    grid-column: 2;
+  }
+  .voice-next {
+    grid-column: 3;
+  }
+}
+.voice-arrow {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-line-pink);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-rose);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+.voice-arrow[hidden] {
+  display: none;
+}
+.voice-arrow::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+}
+.voice-prev::before {
+  transform: translateX(2px) rotate(-135deg);
+}
+.voice-next::before {
+  transform: translateX(-2px) rotate(45deg);
+}
+.voice-arrow:hover:not(:disabled) {
+  background: var(--color-bg-pink);
+}
+.voice-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* タブレット・スマホ：矢印なしで、横にスワイプして見る */
+@media (max-width: 1023px) {
+  .voice-arrow {
+    display: none;
+  }
+  .voice-list {
+    gap: 16px;
+    margin: 0 -20px;
+    padding: 4px 20px 16px;
+    scroll-padding: 0 20px;
+  }
+  .voice-card {
+    flex: 0 0 82%;
+    max-width: 320px;
+    scroll-snap-align: center;
   }
 }

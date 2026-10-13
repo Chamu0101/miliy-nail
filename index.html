@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <script src="nav.js" defer></script>
+    <script src="voice.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Great+Vibes&family=Zen+Kaku+Gothic+New:wght@400&display=swap"
       rel="stylesheet"
@@ -100,7 +101,7 @@
         <h2 class="fade-up">選ばれる3つの理由</h2>
         <ol class="reason-list">
           <li class="fade-up">
-            <img src="images/hero-nail-1.webp" alt="推しカラーを取り入れたネイルデザイン">
+            <img src="images/hero-nail-1.webp" alt="推しカラーを取り入れたネイルデザイン" loading="lazy">
             <div class="reason-body">
               <span class="reason-num">01</span>
               <h3>推しへの“好き”を、指先に。</h3>
@@ -108,7 +109,7 @@
             </div>
           </li>
           <li class="fade-up">
-            <img src="images/hero-nail-1.webp" alt="量産型のかわいいネイルデザイン">
+            <img src="images/hero-nail-1.webp" alt="量産型のかわいいネイルデザイン" loading="lazy">
             <div class="reason-body">
               <span class="reason-num">02</span>
               <h3>“かわいい”を、一緒につくる。</h3>
@@ -116,7 +117,7 @@
             </div>
           </li>
           <li class="fade-up">
-            <img src="images/hero-salon.jpg" alt="完全個室の施術スペース">
+            <img src="images/hero-salon.webp" alt="完全個室の施術スペース" loading="lazy">
             <div class="reason-body">
               <span class="reason-num">03</span>
               <h3>完全個室・非対面で、気をつかわない時間を。</h3>
@@ -215,6 +216,18 @@
             rel="noopener"
             >Instagramでもっと見る</a
           >
+        </p>
+      </section>
+      <section class="voice" id="voice" hidden>
+        <p class="section-label fade-up">Voice</p>
+        <h2 class="fade-up">お客様の声</h2>
+        <div class="voice-slider">
+          <button type="button" class="voice-arrow voice-prev" aria-label="前のレビューを見る" hidden></button>
+          <ul class="voice-list"></ul>
+          <button type="button" class="voice-arrow voice-next" aria-label="次のレビューを見る" hidden></button>
+        </div>
+        <p class="voice-note">
+          ※口コミをお寄せいただいたお客様には、次回ご利用時の割引特典をお渡ししています。
         </p>
       </section>
     </main>
