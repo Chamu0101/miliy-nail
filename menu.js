@@ -10,7 +10,8 @@ const dialogText = document.querySelector(".dialog-text");
 menuButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const item = button.closest("li");
-    const name = item.querySelector(".menu-name").textContent;
+    // 名前：data-name があればそれを使う（ホームの「当店人気No.1」のバッジを小窓の見出しに入れないため）
+    const name = item.dataset.name || item.querySelector(".menu-name").textContent;
 
     const image = item.dataset.image;
     const detail = item.querySelector(".menu-detail");

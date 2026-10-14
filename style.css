@@ -586,6 +586,12 @@ main a {
   border-bottom: none;
   border-radius: 8px;
 }
+/* PC：バッジの下の名前と、所要時間・料金の高さをそろえる（ボタンの中も下そろえにする） */
+@media (min-width: 601px) {
+  .menu-featured .menu-button {
+    align-items: flex-end;
+  }
+}
 .menu-badge {
   display: block;
   width: fit-content;

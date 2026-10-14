@@ -22,6 +22,7 @@
     <script src="script.js" defer></script>
     <script src="nav.js" defer></script>
     <script src="voice.js" defer></script>
+    <script src="menu.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Great+Vibes&family=Zen+Kaku+Gothic+New:wght@400&display=swap"
       rel="stylesheet"
@@ -261,23 +262,48 @@
         <h2 class="fade-up">人気メニュー</h2>
         <p class="menu-lead fade-up">日常も特別な日も、ときめくネイルを…♡</p>
         <ul class="menu-list fade-up">
-          <li class="menu-featured">
-            <span class="menu-name"
-              ><span class="menu-badge">当店人気No.1</span>♡miliy
-              collection♡</span
-            >
-            <span class="menu-time">120分</span>
-            <span class="menu-price">12,000円</span>
+          <li class="menu-featured" data-image="" data-name="♡miliy collection♡">
+            <button type="button" class="menu-button">
+              <span class="menu-name"
+                ><span class="menu-badge">当店人気No.1</span>♡miliy collection♡</span
+              ><span class="menu-time">120分</span
+              ><span class="menu-price">12,000円</span>
+            </button>
+            <div class="menu-detail" hidden>
+              <p class="menu-detail-time">所要時間の目安：120分</p>
+              <p>定額デザインコース♡</p>
+              <p>一部カラー変更可能です。カラー変更をご希望の場合は、ご予約後に必ず公式LINEまでお知らせください。</p>
+              <p>※デザインは予告なく変わる場合がございます。</p>
+            </div>
           </li>
-          <li>
-            <span class="menu-name">ワンカラー</span>
-            <span class="menu-time">45分</span>
-            <span class="menu-price">5,500円</span>
+          <li data-image="">
+            <button type="button" class="menu-button">
+              <span class="menu-name">ワンカラー</span
+              ><span class="menu-time">45分</span
+              ><span class="menu-price">5,500円</span>
+            </button>
+            <div class="menu-detail" hidden>
+              <p class="menu-detail-time">所要時間の目安：45分</p>
+              <p>指先を一色でまとめるベーシックな塗り方です。</p>
+              <p>お好きなカラーを1色お選びいただけます。※ラメカラーも対象です♡</p>
+              <p>2色塗りたい方は1色追加ごとに＋400円。</p>
+              <p>（追加アートより「カラー1色追加」をご選択ください）</p>
+              <p>マットホワイト、マットブラックは＋500円</p>
+              <p>※透け感のあるカラーで爪先が透けるのを隠したい場合は、ご予約時に追加アートから「コンシーラーカラー」をご選択ください。</p>
+            </div>
           </li>
-          <li>
-            <span class="menu-name">マグネット</span>
-            <span class="menu-time">45分</span>
-            <span class="menu-price">6,500円</span>
+          <li data-image="">
+            <button type="button" class="menu-button">
+              <span class="menu-name">マグネット</span
+              ><span class="menu-time">45分</span
+              ><span class="menu-price">6,500円</span>
+            </button>
+            <div class="menu-detail" hidden>
+              <p class="menu-detail-time">所要時間の目安：45分</p>
+              <p>60色以上のカラーの中からお選びいただけます。ギラギラ系〜うるちゅる水光マグまで取り揃えております♡</p>
+              <p>おすすめアート：♡プチデコ 350円　♡先端ラメがけ 1,000円　♡オーロラミラー追加 3,500円</p>
+              <p>※ご希望の場合は、ご予約時に追加アートからご選択ください。</p>
+            </div>
           </li>
         </ul>
         <p class="menu-more fade-up">
@@ -320,6 +346,14 @@
           ※口コミをお寄せいただいたお客様には、次回ご利用時の割引特典をお渡ししています。
         </p>
       </section>
+      <!-- 人気メニューを押したときの小窓（メニューページと同じもの） -->
+      <dialog class="menu-dialog">
+        <img class="dialog-image" src="" alt="" />
+        <h2 class="dialog-name"></h2>
+        <p class="dialog-price"></p>
+        <div class="dialog-text"></div>
+        <button type="button" class="dialog-close">閉じる</button>
+      </dialog>
     </main>
     <footer>
       <p>営業時間 10:00〜21:00（最終受付19:00）</p>
