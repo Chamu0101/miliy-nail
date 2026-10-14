@@ -725,6 +725,11 @@ main a {
 .sample-more {
   margin: 40px 0 0;
 }
+/* 作品写真が届くまでの案内文（見出しの下の大きな余白に食い込ませて、見出しに近づける） */
+.sample-lead {
+  margin: -32px 0 0;
+  color: var(--color-text-sub-on-pink);
+}
 /* ホームの人気メニュー・アートサンプルも、ほかのセクションと同じ上下の余白にする */
 .menu,
 .sample {
