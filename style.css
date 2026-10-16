@@ -657,10 +657,12 @@ main a {
 .menu-dialog::backdrop {
   background-color: rgba(58, 48, 45, 0.5);
 }
+/* 小窓の写真は切らずに全体を見せる（ネイルの写真は正方形なので正方形の枠にする。
+   正方形でない写真（ラメグラデーションの色見本など）は、余白をつけて全体をおさめる） */
 .menu-dialog img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
   margin-bottom: 20px;
 }
 .menu-dialog h2,
