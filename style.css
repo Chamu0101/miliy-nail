@@ -509,6 +509,10 @@ main a {
   font-size: 14px;
   color: var(--color-text-light);
 }
+/* 文の途中（「イメー／ジ」など）で改行されないように、ひとかたまりで折り返す */
+.phrase {
+  display: inline-block;
+}
 /* ===== お知らせ ===== */
 .news {
   overflow: hidden;
