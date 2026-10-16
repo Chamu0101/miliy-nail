@@ -7,6 +7,20 @@ const dialogName = document.querySelector(".dialog-name");
 const dialogPrice = document.querySelector(".dialog-price");
 const dialogText = document.querySelector(".dialog-text");
 
+// 写真があるメニューは、一覧にも小さく写真を出す。
+// 一覧用には軽い小さな写真（images/menu/thumb/ の同じ名前のファイル）を使う
+menuButtons.forEach((button) => {
+  const image = button.closest("li").dataset.image;
+  if (image) {
+    const thumb = document.createElement("img");
+    thumb.className = "menu-thumb";
+    thumb.src = image.replace("images/menu/", "images/menu/thumb/");
+    thumb.alt = "";
+    thumb.loading = "lazy";
+    button.prepend(thumb);
+  }
+});
+
 menuButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const item = button.closest("li");

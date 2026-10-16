@@ -636,6 +636,17 @@ main a {
 .menu-button:hover .menu-name {
   color: var(--color-hover);
 }
+/* 写真があるメニューは、一覧の左に小さく写真を出す（写真の img は menu.js が data-image から作る） */
+.menu-thumb {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.menu-button:has(.menu-thumb) {
+  align-items: center;
+}
 .menu-dialog {
   width: min(90vw, 480px);
   max-height: 90vh;
@@ -1113,6 +1124,18 @@ footer p {
   }
   .menu-button::after {
     grid-area: arrow;
+  }
+  /* 写真があるときは、左に写真の列を足す */
+  .menu-button:has(.menu-thumb) {
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas:
+      "thumb name price arrow"
+      "thumb time price arrow";
+  }
+  .menu-thumb {
+    grid-area: thumb;
+    width: 52px;
+    height: 52px;
   }
   /* 線のボタン：スマホでは余白と横線を少し小さくして、文字が途中で改行されないようにする */
   .btn-line {
