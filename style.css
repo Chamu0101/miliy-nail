@@ -1132,6 +1132,13 @@ footer p {
   .reserve-guide .reserve-guide-btn {
     text-align: center;
   }
+  /* メニューページの注意書き：スマホでは区切りの改行をせず、ふつうの文章として流す */
+  .pc-br {
+    display: none;
+  }
+  .phrase {
+    display: inline;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

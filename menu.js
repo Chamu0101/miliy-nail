@@ -36,6 +36,9 @@ menuButtons.forEach((button) => {
     }
 
     menuDialog.showModal();
+    // 開いたときは一番上（写真）から見せる。
+    // showModal は「閉じる」ボタンにフォーカスを当てるので、長い説明だと一番下まで自動でスクロールしてしまうため
+    menuDialog.scrollTop = 0;
   });
 });
 
