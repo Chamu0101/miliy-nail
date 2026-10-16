@@ -84,13 +84,23 @@ header nav {
 .nav-list {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 28px;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 .nav-list a {
   white-space: nowrap;
+}
+/* ナビの文字：英語を大きめに書いて、右に日本語を小さく添える */
+.nav-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  letter-spacing: 0.1em;
+}
+.nav-ja {
+  margin-left: 6px;
+  font-size: 11px;
 }
 header a {
   text-decoration: none;
@@ -806,6 +816,22 @@ footer p {
   transform: none;
 }
 
+/* ===== タブレット（601〜1040px）：ナビが横一列に入りきらないので、日本語を英語の下に置く ===== */
+@media (min-width: 601px) and (max-width: 1040px) {
+  .nav-list {
+    gap: 16px;
+  }
+  .nav-list a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.5;
+  }
+  .nav-ja {
+    margin-left: 0;
+  }
+}
+
 /* ===== スマホ（必ず一番下） ===== */
 @media (max-width: 600px) {
   /* ナビは画面全体に重ねるので、座席表は1段だけにする */
@@ -931,6 +957,13 @@ footer p {
     font-size: 18px;
     letter-spacing: 0.12em;
     color: var(--color-heading);
+  }
+  .nav-en {
+    font-size: 22px;
+  }
+  .nav-ja {
+    margin-left: 10px;
+    font-size: 12px;
   }
   /* ご予約だけ一番上に出して、枠線のボタンにする */
   .nav-reserve {
