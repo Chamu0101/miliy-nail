@@ -318,6 +318,10 @@ header a:hover {
   line-height: 2;
   color: var(--color-text-sub-on-pink);
 }
+/* 理由01の下の「3Dパーツの相談」リンク（本文との間を少しあける） */
+.reason-body .reason-link {
+  margin-top: 16px;
+}
 .reason-cta {
   margin: 64px 0 0;
   text-align: center;
