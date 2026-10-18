@@ -871,6 +871,51 @@ main a {
 .profile-message span {
   display: inline-block;
 }
+/* 看板猫のコーナー（ネイリスト紹介の下） */
+.profile-cat {
+  margin-top: 24px;
+  padding-top: 0 !important;
+}
+.profile-sub-label {
+  margin: 0 0 4px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: var(--color-rose);
+  text-align: center;
+}
+.profile-cat > h2 {
+  margin-bottom: 32px;
+}
+/* 猫のプロフィールは短い項目が多いので、左に項目名・右に内容の2列にする。
+   左の列の幅は、いちばん長い項目名（チャームポイント）に合わせて自動で決める */
+.profile-cat .profile-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border-top: 1px solid var(--color-border);
+}
+.profile-cat .profile-list dt,
+.profile-cat .profile-list dd,
+.profile-cat .profile-list dd:last-of-type {
+  margin: 0;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  line-height: 1.8;
+}
+.profile-cat .profile-list dt {
+  padding-right: 24px;
+  white-space: nowrap;
+}
+.profile-cat-translation {
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+.profile-cat-note {
+  margin: 24px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
 
 /* ===== プライバシーポリシーなど、文章が中心のページ ===== */
 .policy-lead {
