@@ -887,6 +887,12 @@ main a {
 .profile-cat > h2 {
   margin-bottom: 32px;
 }
+.profile-cat-photo {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 32px;
+  border-radius: 12px;
+}
 /* 猫のプロフィールは短い項目が多いので、左に項目名・右に内容の2列にする。
    左の列の幅は、いちばん長い項目名（チャームポイント）に合わせて自動で決める */
 .profile-cat .profile-list {
