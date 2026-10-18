@@ -260,6 +260,10 @@ header a:hover {
   font-size: 18px;
   font-weight: normal;
 }
+/* 幅のせまいスマホで「ミリーネイ／ル」と途中で折り返さないように、店名はひとかたまりにする */
+.hero-info h1 span {
+  display: inline-block;
+}
 .hero-info p {
   margin: 0;
   font-size: 18px;
@@ -327,6 +331,10 @@ header a:hover {
   margin: 0;
   line-height: 2;
   color: var(--color-text-sub-on-pink);
+}
+/* 本文が何段落かあるときは、段落の間を少しあける */
+.reason-body p + p {
+  margin-top: 12px;
 }
 /* 理由01の下の「3Dパーツの相談」リンク（本文との間を少しあける） */
 .reason-body .reason-link {
@@ -485,7 +493,8 @@ header a:hover {
 .menu-section,
 .faq,
 .sample,
-.access-section {
+.access-section,
+.profile-section {
   max-width: 720px;
   margin: 0 auto;
   padding: 48px 20px;
@@ -518,6 +527,15 @@ main a {
 .page-title p {
   font-size: 14px;
   color: var(--color-text-light);
+}
+/* ページタイトルの上の英字（ネイリスト紹介の「Nailist Profile」） */
+.page-title .page-label {
+  margin: 0 0 4px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: var(--color-rose);
+  text-align: center;
 }
 /* 文の途中（「イメー／ジ」など）で改行されないように、ひとかたまりで折り返す */
 .phrase {
@@ -794,6 +812,61 @@ main a {
   color: var(--color-text-light);
 }
 
+/* ===== ネイリスト紹介 ===== */
+.profile-list {
+  margin: 0;
+}
+/* 項目名（取得資格・得意なジャンル…） */
+.profile-list dt {
+  margin: 0 0 8px;
+  letter-spacing: 0.05em;
+  color: var(--color-heading);
+}
+/* 項目の中身。項目と項目の間にベージュの線を引く（最後の項目は線なし） */
+.profile-list dd {
+  margin: 0 0 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-border);
+  line-height: 2;
+}
+.profile-list dd:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+/* 資格の一覧：頭に♡をつける */
+.profile-license {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.profile-license li::before {
+  content: "♡";
+  margin-right: 0.5em;
+  color: var(--color-rose);
+}
+/* メッセージ：うすいピンクの箱に入れて、真ん中にそろえる */
+.profile-message {
+  margin-top: 48px;
+  padding: 32px 24px;
+  border-radius: 12px;
+  background-color: var(--color-bg-pink);
+  text-align: center;
+}
+.profile-message h2 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  color: var(--color-heading);
+}
+.profile-message p {
+  margin: 0;
+  line-height: 2;
+}
+/* 「指先を見るたびに、」などのかたまりの途中で改行されないようにする */
+.profile-message span {
+  display: inline-block;
+}
+
 /* ===== フッター ===== */
 footer {
   padding: 32px 20px;
@@ -816,10 +889,13 @@ footer p {
   transform: none;
 }
 
-/* ===== タブレット（601〜1040px）：ナビが横一列に入りきらないので、日本語を英語の下に置く ===== */
-@media (min-width: 601px) and (max-width: 1040px) {
+/* ===== タブレット（601〜1180px）：ナビが横一列に入りきらないので、日本語を英語の下に置く ===== */
+@media (min-width: 601px) and (max-width: 1180px) {
   .nav-list {
-    gap: 16px;
+    gap: 10px;
+  }
+  .nav-en {
+    font-size: 15px;
   }
   .nav-list a {
     display: flex;
@@ -948,6 +1024,9 @@ footer p {
     transition-delay: 0.3s;
   }
   header.is-open .nav-list li:nth-child(5) {
+    transition-delay: 0.35s;
+  }
+  header.is-open .nav-list li:nth-child(6) {
     transition-delay: 0.1s;
   }
   .nav-list a {
@@ -1102,7 +1181,8 @@ footer p {
   .menu-section,
   .faq,
   .sample,
-  .access-section {
+  .access-section,
+  .profile-section {
     padding: 40px 16px;
   }
   .menu,
