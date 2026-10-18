@@ -868,15 +868,88 @@ main a {
 }
 
 /* ===== フッター ===== */
+/* PC：左にお店の情報、真ん中にページのリンク、右に予約の3列。一番下に © */
 footer {
-  padding: 32px 20px;
+  padding: 56px 32px 24px;
   background-color: var(--color-header-footer);
-  text-align: center;
   font-size: 14px;
   color: var(--color-text-sub-on-pink);
 }
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.2fr;
+  gap: 40px;
+  max-width: 960px;
+  margin: 0 auto;
+}
 footer p {
   margin: 4px 0;
+}
+footer a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+footer a:hover {
+  color: var(--color-hover);
+}
+.footer-logo img {
+  width: 80px;
+}
+.footer-catch {
+  margin: 12px 0 !important;
+  letter-spacing: 0.05em;
+  color: var(--color-heading);
+}
+.footer-note {
+  display: block;
+  font-size: 12px;
+  color: var(--color-text-light);
+}
+.footer-sns {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+.footer-sns img {
+  width: 32px;
+}
+/* 列の見出し（Site Map・Reservation） */
+.footer-heading {
+  margin: 0 0 16px !important;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  letter-spacing: 0.15em;
+  color: var(--color-rose);
+}
+.footer-nav ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer-reserve .btn-line {
+  padding: 14px 24px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.footer-dm {
+  margin-top: 16px !important;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.footer-dm a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer-copy {
+  max-width: 960px;
+  margin: 40px auto 0 !important;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-line-pink);
+  text-align: center;
+  font-size: 12px;
 }
 /* ===== スクロールでふわっと出す ===== */
 .js .fade-up {
@@ -905,6 +978,17 @@ footer p {
   }
   .nav-ja {
     margin-left: 0;
+  }
+}
+
+/* ===== タブレット（601〜900px）のフッター：3列だと予約ボタンが窮屈なので、
+   左にお店の情報、右に「ページのリンク」と「予約」を縦に重ねる ===== */
+@media (min-width: 601px) and (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-info {
+    grid-row: span 2;
   }
 }
 
@@ -1273,6 +1357,25 @@ footer p {
   /* メニューページの注意書き：スマホでは区切りの改行をせず、ふつうの文章として流す */
   .pc-br {
     display: none;
+  }
+  /* フッター：縦に1列にして、真ん中にそろえる。ページのリンクは2列 */
+  footer {
+    padding: 48px 16px 24px;
+    text-align: center;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .footer-logo img {
+    margin: 0 auto;
+  }
+  .footer-sns {
+    justify-content: center;
+  }
+  .footer-nav ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 8px;
   }
   .phrase {
     display: inline;
