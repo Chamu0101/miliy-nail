@@ -494,7 +494,8 @@ header a:hover {
 .faq,
 .sample,
 .access-section,
-.profile-section {
+.profile-section,
+.policy-section {
   max-width: 720px;
   margin: 0 auto;
   padding: 48px 20px;
@@ -523,6 +524,10 @@ main a {
   font-size: 26px;
   font-weight: normal;
   letter-spacing: 0.1em;
+}
+/* 長いタイトル（特定商取引法に基づく表記）は、言葉の切れ目で折り返す */
+.page-title h1 span {
+  display: inline-block;
 }
 .page-title p {
   font-size: 14px;
@@ -867,6 +872,68 @@ main a {
   display: inline-block;
 }
 
+/* ===== プライバシーポリシーなど、文章が中心のページ ===== */
+.policy-lead {
+  margin: 0 0 40px;
+  line-height: 2;
+}
+.policy-item + .policy-item {
+  margin-top: 36px;
+}
+/* 項目の見出し：左ぞろえで、下にベージュの線 */
+.policy-section h2 {
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 17px;
+  text-align: left;
+  color: var(--color-heading);
+}
+.policy-section p,
+.policy-section li {
+  line-height: 2;
+}
+.policy-section p {
+  margin: 8px 0 0;
+}
+.policy-section ul {
+  margin: 0;
+  padding-left: 1.4em;
+}
+.policy-note {
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+.policy-date {
+  margin-top: 48px !important;
+  text-align: right;
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+
+/* 特定商取引法に基づく表記：左に項目名、右に内容。項目の間に線 */
+.law-list {
+  display: grid;
+  grid-template-columns: 11em 1fr;
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+}
+.law-list dt,
+.law-list dd {
+  margin: 0;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+  line-height: 1.9;
+}
+.law-list dt {
+  padding-right: 16px;
+  color: var(--color-heading);
+}
+.law-list .policy-note {
+  display: block;
+  margin-top: 4px;
+}
+
 /* ===== フッター ===== */
 /* PC：左にお店の情報、真ん中にページのリンク、右に予約の3列。一番下に © */
 footer {
@@ -943,13 +1010,26 @@ footer a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.footer-copy {
+/* 一番下の段：線で区切って、規約類のリンクと © */
+.footer-bottom {
   max-width: 960px;
-  margin: 40px auto 0 !important;
+  margin: 40px auto 0;
   padding-top: 20px;
   border-top: 1px solid var(--color-line-pink);
   text-align: center;
   font-size: 12px;
+}
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+.footer-copy {
+  margin: 0 !important;
 }
 /* ===== スクロールでふわっと出す ===== */
 .js .fade-up {
@@ -1266,7 +1346,8 @@ footer a:hover {
   .faq,
   .sample,
   .access-section,
-  .profile-section {
+  .profile-section,
+  .policy-section {
     padding: 40px 16px;
   }
   .menu,
@@ -1357,6 +1438,17 @@ footer a:hover {
   /* メニューページの注意書き：スマホでは区切りの改行をせず、ふつうの文章として流す */
   .pc-br {
     display: none;
+  }
+  /* 特定商取引法の表：スマホでは項目名の下に内容を出す */
+  .law-list {
+    grid-template-columns: 1fr;
+  }
+  .law-list dt {
+    padding: 16px 0 4px;
+    border-bottom: none;
+  }
+  .law-list dd {
+    padding-top: 0;
   }
   /* フッター：縦に1列にして、真ん中にそろえる。ページのリンクは2列 */
   footer {
