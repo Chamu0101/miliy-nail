@@ -818,6 +818,12 @@ main a {
 }
 
 /* ===== ネイリスト紹介 ===== */
+/* ページ上の写真（miliy nail nailist profile） */
+.profile-top {
+  width: 100%;
+  margin: 0 0 40px;
+  border-radius: 12px;
+}
 .profile-list {
   margin: 0;
 }
