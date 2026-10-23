@@ -18,11 +18,11 @@
     <meta property="og:site_name" content="miliy nail" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="style.css?v=20261023" />
+    <link rel="stylesheet" href="style.css?v=20261023b" />
     <script src="script.js" defer></script>
     <script src="nav.js" defer></script>
     <script src="voice.js" defer></script>
-    <script src="menu.js" defer></script>
+    <script src="menu.js?v=20261023" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Great+Vibes&family=Zen+Kaku+Gothic+New:wght@400&display=swap"
       rel="stylesheet"
@@ -280,7 +280,7 @@
         <h2 class="fade-up">人気メニュー</h2>
         <p class="menu-lead fade-up">日常も特別な日も、ときめくネイルを…♡</p>
         <ul class="menu-list fade-up">
-          <li class="menu-featured" data-image="images/menu/miliy-collection.webp" data-name="♡miliy collection♡">
+          <li class="menu-featured" data-image="images/menu/miliy-collection.webp" data-gallery="images/menu/miliy-collection-2.webp" data-name="♡miliy collection♡">
             <button type="button" class="menu-button">
               <span class="menu-name"
                 ><span class="menu-badge">当店人気No.1</span>♡miliy collection♡</span
@@ -366,7 +366,10 @@
       </section>
       <!-- 人気メニューを押したときの小窓（メニューページと同じもの） -->
       <dialog class="menu-dialog">
-        <img class="dialog-image" src="" alt="" />
+        <div class="dialog-gallery">
+          <div class="dialog-slides"></div>
+          <div class="dialog-dots"></div>
+        </div>
         <h2 class="dialog-name"></h2>
         <p class="dialog-price"></p>
         <div class="dialog-text"></div>

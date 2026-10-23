@@ -15,9 +15,9 @@
     <meta property="og:site_name" content="miliy nail" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="style.css?v=20261023" />
+    <link rel="stylesheet" href="style.css?v=20261023b" />
     <script src="nav.js" defer></script>
-    <script src="menu.js" defer></script>
+    <script src="menu.js?v=20261023" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap"
       rel="stylesheet"
@@ -200,7 +200,7 @@
               <p>おすすめアート：♡プチデコ 350円　♡パーツ追加 35円〜　♡シール追加 50円〜　♡追加アート 350円〜</p>
             </div>
           </li>
-          <li data-image="">
+          <li data-image="images/menu/design-color.webp">
             <button type="button" class="menu-button">
               <span class="menu-name">Design Color</span
               ><span class="menu-time">85分</span
@@ -228,7 +228,7 @@
 
         <h3 class="fade-up">定額デザインコース</h3>
         <ul class="menu-list fade-up">
-          <li data-image="images/menu/miliy-collection.webp">
+          <li data-image="images/menu/miliy-collection.webp" data-gallery="images/menu/miliy-collection-2.webp">
             <button type="button" class="menu-button">
               <span class="menu-name">♡miliy collection♡</span
               ><span class="menu-time">120分</span
@@ -323,7 +323,7 @@
               <!-- ここに説明文を <p> で書く -->
             </div>
           </li>
-          <li data-image="">
+          <li data-image="images/menu/foot-teigaku.webp" data-gallery="images/menu/foot-teigaku-2.webp,images/menu/foot-teigaku-3.webp">
             <button type="button" class="menu-button">
               <span class="menu-name">フット定額デザイン</span
               ><span class="menu-price">10,000円</span>
@@ -348,7 +348,7 @@
               <!-- ここに説明文を <p> で書く -->
             </div>
           </li>
-          <li data-image="">
+          <li data-image="images/menu/add-art.webp" data-gallery="images/menu/add-art-2.webp,images/menu/add-art-3.webp,images/menu/add-art-4.webp,images/menu/add-art-5.webp,images/menu/add-art-6.webp,images/menu/add-art-7.webp,images/menu/add-art-8.webp,images/menu/add-art-9.webp,images/menu/add-art-10.webp">
             <button type="button" class="menu-button">
               <span class="menu-name">追加アート</span
               ><span class="menu-time">+5分</span
@@ -514,7 +514,10 @@
         <p class="fade-up"><a href="https://salona.jp/book/miliynail" class="btn-line" target="_blank" rel="noopener">ご予約はこちらから</a></p>
       </section>
       <dialog class="menu-dialog">
-        <img class="dialog-image" src="" alt="" />
+        <div class="dialog-gallery">
+          <div class="dialog-slides"></div>
+          <div class="dialog-dots"></div>
+        </div>
         <h2 class="dialog-name"></h2>
         <p class="dialog-price"></p>
         <div class="dialog-text"></div>

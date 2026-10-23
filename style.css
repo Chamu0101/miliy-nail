@@ -696,7 +696,45 @@ main a {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: contain;
+}
+/* 写真を横に並べて、指でスライドできるようにする（1枚ずつピタッと止まる） */
+.dialog-gallery {
   margin-bottom: 20px;
+}
+.dialog-slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* スクロールバーを隠す */
+}
+.dialog-slides::-webkit-scrollbar {
+  display: none;
+}
+.dialog-slides img {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+/* 何枚目かを示す点 */
+.dialog-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.dialog-dots:empty {
+  display: none;
+}
+.dialog-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-line-pink);
+  cursor: pointer;
+}
+.dialog-dot.is-active {
+  background-color: var(--color-rose);
 }
 .menu-dialog h2,
 .menu-dialog p {
@@ -717,10 +755,10 @@ main a {
   content: "›";
   color: var(--color-link);
 }
-.dialog-image[hidden] {
+.dialog-gallery[hidden] {
   display: none;
 }
-.menu-dialog:has(.dialog-image[hidden]) {
+.menu-dialog:has(.dialog-gallery[hidden]) {
   padding-top: 32px;
 }
 .dialog-price {
