@@ -1067,6 +1067,12 @@ main a {
 .copy-button {
   cursor: pointer;
 }
+.order-subtitle {
+  margin: 20px 0 4px;
+  font-size: 15px;
+  font-weight: normal;
+  color: var(--color-heading);
+}
 
 /* ===== フッター ===== */
 /* PC：左にお店の情報、真ん中にページのリンク、右に予約の3列。一番下に © */
