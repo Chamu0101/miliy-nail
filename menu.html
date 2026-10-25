@@ -15,9 +15,9 @@
     <meta property="og:site_name" content="miliy nail" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="style.css?v=20261025d" />
+    <link rel="stylesheet" href="style.css?v=20261025e" />
     <script src="nav.js" defer></script>
-    <script src="menu.js?v=20261023" defer></script>
+    <script src="menu.js?v=20261025" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap"
       rel="stylesheet"
@@ -527,7 +527,16 @@
       </section>
       <dialog class="menu-dialog">
         <div class="dialog-gallery">
-          <div class="dialog-slides"></div>
+          <div class="dialog-frame">
+            <div class="dialog-slides"></div>
+            <button type="button" class="dialog-arrow dialog-prev" aria-label="前の写真を見る">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+            <button type="button" class="dialog-arrow dialog-next" aria-label="次の写真を見る">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+            <span class="dialog-count"></span>
+          </div>
           <div class="dialog-dots"></div>
         </div>
         <h2 class="dialog-name"></h2>

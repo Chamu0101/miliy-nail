@@ -5,6 +5,9 @@ const closeButton = document.querySelector(".dialog-close");
 const dialogGallery = document.querySelector(".dialog-gallery");
 const dialogSlides = document.querySelector(".dialog-slides");
 const dialogDots = document.querySelector(".dialog-dots");
+const dialogPrev = document.querySelector(".dialog-prev");
+const dialogNext = document.querySelector(".dialog-next");
+const dialogCount = document.querySelector(".dialog-count");
 const dialogName = document.querySelector(".dialog-name");
 const dialogPrice = document.querySelector(".dialog-price");
 const dialogText = document.querySelector(".dialog-text");
@@ -57,7 +60,7 @@ menuButtons.forEach((button) => {
     menuDialog.scrollTop = 0;
     // 写真も1枚目から見せる
     dialogSlides.scrollLeft = 0;
-    updateDots();
+    updateGallery();
   });
 });
 
@@ -97,22 +100,63 @@ function showPhotos(images, name) {
       dot.type = "button";
       dot.className = "dialog-dot";
       dot.setAttribute("aria-label", `${index + 1}枚目の写真を見る`);
-      // 点を押したら、その写真までスライドする（パソコンで見る人用）
+      // 点を押したら、その写真までスライドする
       dot.addEventListener("click", () => {
-        dialogSlides.scrollTo({ left: dialogSlides.clientWidth * index, behavior: "smooth" });
+        goToPhoto(index);
       });
       dialogDots.append(dot);
     }
   });
-  updateDots();
+  updateGallery();
 }
 
-// 今見ている写真の点だけ色を濃くする
-function updateDots() {
+// 今何枚目を見ているか（0 が1枚目）
+function currentIndex() {
   const width = dialogSlides.clientWidth || 1; // 小窓が閉じているときは幅が0なので、0で割らないようにする
-  const current = Math.round(dialogSlides.scrollLeft / width);
+  return Math.round(dialogSlides.scrollLeft / width);
+}
+
+// 指定した写真までスライドする（1枚目より前・最後より後ろには行かない）
+function goToPhoto(index) {
+  const last = dialogSlides.children.length - 1;
+  const target = Math.min(Math.max(index, 0), last);
+  dialogSlides.scrollTo({ left: dialogSlides.clientWidth * target, behavior: "smooth" });
+}
+
+// 点・「何枚目／全部で何枚」・左右の矢印を、今見ている写真に合わせる
+function updateGallery() {
+  const total = dialogSlides.children.length;
+  const current = currentIndex();
+
+  // 今見ている写真の点だけ色を濃くする
   dialogDots.querySelectorAll(".dialog-dot").forEach((dot, index) => {
     dot.classList.toggle("is-active", index === current);
   });
+
+  // 写真が2枚以上のときだけ「1 / 3」のように出す
+  dialogCount.textContent = total > 1 ? `${current + 1} / ${total}` : "";
+
+  // 1枚目では左の矢印、最後の写真では右の矢印を隠す
+  dialogPrev.hidden = total <= 1 || current === 0;
+  dialogNext.hidden = total <= 1 || current === total - 1;
 }
-dialogSlides.addEventListener("scroll", updateDots);
+dialogSlides.addEventListener("scroll", updateGallery);
+
+// 矢印を押したら、前・次の写真へ
+dialogPrev.addEventListener("click", () => {
+  goToPhoto(currentIndex() - 1);
+});
+dialogNext.addEventListener("click", () => {
+  goToPhoto(currentIndex() + 1);
+});
+
+// パソコンでは、キーボードの ← → でも写真を切り替えられるようにする
+menuDialog.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft") {
+    event.preventDefault();
+    goToPhoto(currentIndex() - 1);
+  } else if (event.key === "ArrowRight") {
+    event.preventDefault();
+    goToPhoto(currentIndex() + 1);
+  }
+});

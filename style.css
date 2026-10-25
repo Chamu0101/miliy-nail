@@ -736,6 +736,50 @@ main a {
 .dialog-dot.is-active {
   background-color: var(--color-rose);
 }
+/* 写真の左右の矢印と「何枚目／全部で何枚」。写真の上に重ねて、次の写真があることがひと目でわかるようにする */
+.dialog-frame {
+  position: relative;
+}
+.dialog-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px rgba(58, 48, 45, 0.15);
+  color: var(--color-button);
+  cursor: pointer;
+}
+.dialog-prev {
+  left: 8px;
+}
+.dialog-next {
+  right: 8px;
+}
+.dialog-arrow[hidden] {
+  display: none;
+}
+.dialog-count {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--color-button);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+.dialog-count:empty {
+  display: none;
+}
 .menu-dialog h2,
 .menu-dialog p {
   padding: 0 24px;
