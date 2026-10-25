@@ -1067,6 +1067,15 @@ main a {
 .copy-button {
   cursor: pointer;
 }
+/* ご予約・ご注文ページのボタンは、文字の長さが違っても同じ幅の四角にそろえる */
+.reserve-guide .btn-line,
+.order-buttons .btn-line {
+  width: 340px;
+  max-width: 100%;
+  justify-content: center;
+  line-height: 1.6;
+  white-space: nowrap;
+}
 .order-subtitle {
   margin: 20px 0 4px;
   font-size: 15px;
