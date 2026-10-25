@@ -800,6 +800,15 @@ main a {
   gap: 16px;
   margin: 24px 0 56px;
 }
+/* ホームから「ネイルチップ・3Dパーツ単体のみのご依頼」に飛んだとき、見出しがヘッダーに隠れないようにする */
+#order {
+  scroll-margin-top: 190px;
+}
+@media (max-width: 600px) {
+  #order {
+    scroll-margin-top: 132px;
+  }
+}
 /* キャンセル規定（よくある質問ページの下） */
 .faq-policy {
   max-width: 720px;
