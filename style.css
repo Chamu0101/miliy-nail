@@ -792,6 +792,14 @@ main a {
 .reserve-guide-btn {
   margin: 24px 0 56px;
 }
+/* ボタンが2つ並ぶとき（ネイルチップご注文の方／3Dパーツご注文の方） */
+.reserve-guide-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0 56px;
+}
 /* キャンセル規定（よくある質問ページの下） */
 .faq-policy {
   max-width: 720px;
@@ -1027,6 +1035,37 @@ main a {
 .law-list .policy-note {
   display: block;
   margin-top: 4px;
+}
+
+/* ===== ネイルチップ・3Dパーツのご注文ページ ===== */
+.order-steps {
+  margin: 0;
+  padding-left: 1.4em;
+}
+.order-steps li {
+  line-height: 2;
+}
+/* ご注文テンプレートの枠：書いたとおりに改行して見せる */
+.order-template {
+  margin: 16px 0 0;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: var(--color-bg-pink);
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  color: var(--color-text);
+}
+.order-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px !important;
+}
+.copy-button {
+  cursor: pointer;
 }
 
 /* ===== フッター ===== */
